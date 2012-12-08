@@ -7,7 +7,6 @@
 //
 
 #import "WKAppController.h"
-#import "WKAppDelegate.h"
 #import "WKNotifier.h"
 
 @implementation WKAppController
@@ -20,9 +19,7 @@
 
 -(IBAction)Close:(id)sender{
     [[NSUserDefaults standardUserDefaults] setObject:[apiKey stringValue] forKey:kApiKey];
-    
-    WKAppDelegate* appDelegate = [[NSApplication sharedApplication] delegate];
-    [[appDelegate window] orderOut:self];
+    [window orderOut:self];
 }
 
 -(void)checkNotification:(id)sender;{
@@ -34,13 +31,33 @@
 }
 
 -(void)awakeFromNib{
+    // Set up Statusbar Icon
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    
+    [statusItem setMenu:statusMenu];
+    [statusItem setHighlightMode:YES];
+    [statusItem setImage:[NSImage imageNamed:@"menubar.png"]];
+    [statusItem setAlternateImage: [NSImage imageNamed:@"menubar-invert.png"]];
+    [statusItem setEnabled:YES];
+    
+    // Sets Default Values
     if([[NSUserDefaults standardUserDefaults] objectForKey:kApiKey] != nil)
     {
         [apiKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:kApiKey]];
     }
-        
+    
+    // Start 5 min check timer
     NSTimer *timer;
     timer = [NSTimer scheduledTimerWithTimeInterval: 300 target: self selector: @selector(checkNotification:) userInfo: nil repeats: YES];
+}
+
+- (IBAction)showPreferences:(id)sender {
+    [NSApp activateIgnoringOtherApps:YES];
+    [window makeKeyAndOrderFront:nil];
+}
+
+- (IBAction)quit:(id)sender {
+    [NSApp terminate:nil];
 }
 
 @end

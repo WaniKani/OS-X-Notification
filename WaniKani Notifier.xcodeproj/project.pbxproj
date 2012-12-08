@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
+		D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1367CB91673C8EF0062013A /* default-avatar.jpg */; };
 		D174ADC21673678C00C82F90 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D174ADC11673678C00C82F90 /* Cocoa.framework */; };
 		D174ADCC1673678C00C82F90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D174ADCA1673678C00C82F90 /* InfoPlist.strings */; };
 		D174ADCE1673678C00C82F90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADCD1673678C00C82F90 /* main.m */; };
@@ -37,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D1367CB11673C4C40062013A /* MGPreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPreferencePanel.h; sourceTree = "<group>"; };
+		D1367CB21673C4C40062013A /* MGPreferencePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPreferencePanel.m; sourceTree = "<group>"; };
+		D1367CB91673C8EF0062013A /* default-avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default-avatar.jpg"; sourceTree = "<group>"; };
 		D174ADBD1673678B00C82F90 /* WaniKani Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WaniKani Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D174ADC11673678C00C82F90 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D174ADC41673678C00C82F90 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -101,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1367CB01673C4C40062013A /* MGPreferencePanel */ = {
+			isa = PBXGroup;
+			children = (
+				D1367CB11673C4C40062013A /* MGPreferencePanel.h */,
+				D1367CB21673C4C40062013A /* MGPreferencePanel.m */,
+			);
+			path = MGPreferencePanel;
+			sourceTree = "<group>";
+		};
 		D174ADB21673678B00C82F90 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +185,7 @@
 		D174ADE41673699900C82F90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D1367CB91673C8EF0062013A /* default-avatar.jpg */,
 				D174ADE51673699900C82F90 /* menubar-invert.png */,
 				D174ADE61673699900C82F90 /* menubar.png */,
 				D174ADE71673699900C82F90 /* preference-image.png */,
@@ -190,6 +205,7 @@
 		D174ADFB16737ABD00C82F90 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				D1367CB01673C4C40062013A /* MGPreferencePanel */,
 				D174AE0016737D0000C82F90 /* SBJson */,
 				D174ADFC16737C5200C82F90 /* LaunchAtLoginController */,
 			);
@@ -298,6 +314,7 @@
 				D174ADEB1673699900C82F90 /* preference-image.png in Resources */,
 				D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */,
 				D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */,
+				D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +342,7 @@
 				D174AE2416737D0000C82F90 /* SBJsonUTF8Stream.m in Sources */,
 				D174AE2516737D0000C82F90 /* SBJsonWriter.m in Sources */,
 				D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */,
+				D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

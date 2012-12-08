@@ -9,8 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface WKAppController : NSObject{
+    NSStatusItem *statusItem;
+    IBOutlet NSMenu *statusMenu;
+    IBOutlet NSWindow *window;
+    
     IBOutlet NSTextField *apiKey;
 }
+
+- (IBAction)showPreferences:(id)sender;
+- (IBAction)quit:(id)sender;
 
 -(IBAction)Close:(id)sender;
 -(void)loadKeys;

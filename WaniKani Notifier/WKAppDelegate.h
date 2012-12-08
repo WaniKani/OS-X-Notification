@@ -9,15 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface WKAppDelegate : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>{
-    NSStatusItem *statusItem;
-    IBOutlet NSMenu *statusMenu;
-    IBOutlet NSWindow *window;
 
 }
-
-@property (assign) IBOutlet NSWindow *window;
-
-- (IBAction)showPreferences:(id)sender;
-- (IBAction)quit:(id)sender;
 
 @end
