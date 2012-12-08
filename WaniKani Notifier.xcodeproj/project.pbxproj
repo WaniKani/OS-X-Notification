@@ -446,6 +446,7 @@
 				D174ADDD1673678C00C82F90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

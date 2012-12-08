@@ -34,8 +34,11 @@
 }
 
 -(void)awakeFromNib{
-    [apiKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:kApiKey]];
-    
+    if([[NSUserDefaults standardUserDefaults] objectForKey:kApiKey] != nil)
+    {
+        [apiKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:kApiKey]];
+    }
+        
     NSTimer *timer;
     timer = [NSTimer scheduledTimerWithTimeInterval: 300 target: self selector: @selector(checkNotification:) userInfo: nil repeats: YES];
 }

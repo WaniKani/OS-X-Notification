@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -26,6 +26,8 @@
 	<string>public.app-category.education</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012 Sebastian Szturo. All rights reserved.</string>
 	<key>NSMainNibFile</key>
@@ -34,7 +36,5 @@
 	<string>NSApplication</string>
 	<key>NSUserNotificationAlertStyle</key>
 	<string>alerts</string>
-	<key>LSUIElement</key>
-	<true/>
 </dict>
 </plist>
