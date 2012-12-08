@@ -688,7 +688,7 @@
 					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="231953541"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 900}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -713,7 +713,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{166, 20}, {316, 22}}</string>
 						<reference key="NSSuperview" ref="457847625"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -756,7 +755,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{163, 50}, {353, 51}}</string>
 						<reference key="NSSuperview" ref="457847625"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="832931814"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSAntiCompressionPriority">{250, 750}</string>
@@ -796,7 +794,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{163, 105}, {208, 17}}</string>
 						<reference key="NSSuperview" ref="457847625"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="880245881"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
@@ -821,7 +818,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{164, 137}, {216, 18}}</string>
 						<reference key="NSSuperview" ref="457847625"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="794194502"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -853,7 +849,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{163, 156}, {353, 39}}</string>
 						<reference key="NSSuperview" ref="457847625"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="270399475"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSAntiCompressionPriority">{250, 750}</string>
@@ -888,7 +883,6 @@
 						</set>
 						<string key="NSFrame">{{20, 57}, {138, 138}}</string>
 						<reference key="NSSuperview" ref="457847625"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="687700666"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -911,7 +905,6 @@
 				</array>
 				<string key="NSFrameSize">{533, 215}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="80533986"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">NSView</string>
@@ -1024,7 +1017,7 @@
 					<object class="NSLevelIndicator" id="737992440">
 						<reference key="NSNextResponder" ref="1067601679"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{145, 99}, {367, 18}}</string>
+						<string key="NSFrame">{{146, 99}, {367, 18}}</string>
 						<reference key="NSSuperview" ref="1067601679"/>
 						<reference key="NSNextKeyView" ref="225363285"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -1195,7 +1188,7 @@
 						<bool key="NSEditable">YES</bool>
 					</object>
 				</array>
-				<string key="NSFrameSize">{532, 260}</string>
+				<string key="NSFrameSize">{533, 260}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="395740649"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -1204,7 +1197,7 @@
 			<object class="NSCustomView" id="269987590">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
-				<string key="NSFrameSize">{163, 96}</string>
+				<string key="NSFrameSize">{533, 253}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -3155,7 +3148,6 @@
 								<int key="contentType">3</int>
 							</object>
 							<reference ref="395740649"/>
-							<reference ref="420760650"/>
 							<reference ref="74556267"/>
 							<reference ref="737992440"/>
 							<reference ref="468321656"/>
@@ -3167,6 +3159,7 @@
 							<reference ref="230306063"/>
 							<reference ref="492596194"/>
 							<reference ref="425322614"/>
+							<reference ref="420760650"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D11F59D81673D2D20097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59D71673D2D20097B5C8 /* WKApi.m */; };
+		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
 		D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1367CB91673C8EF0062013A /* default-avatar.jpg */; };
 		D174ADC21673678C00C82F90 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D174ADC11673678C00C82F90 /* Cocoa.framework */; };
@@ -40,8 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D11F59D61673D2D20097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
-		D11F59D71673D2D20097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
+		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
+		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
 		D1367CB11673C4C40062013A /* MGPreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPreferencePanel.h; sourceTree = "<group>"; };
 		D1367CB21673C4C40062013A /* MGPreferencePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPreferencePanel.m; sourceTree = "<group>"; };
 		D1367CB91673C8EF0062013A /* default-avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default-avatar.jpg"; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 				D174ADF516736FDA00C82F90 /* WKAppController.m */,
 				D174AE2616737D1800C82F90 /* WKNotifier.h */,
 				D174AE2716737D1800C82F90 /* WKNotifier.m */,
-				D11F59D61673D2D20097B5C8 /* WKApi.h */,
-				D11F59D71673D2D20097B5C8 /* WKApi.m */,
+				D11F59D91673D3C10097B5C8 /* WKApi.h */,
+				D11F59DA1673D3C10097B5C8 /* WKApi.m */,
 				D174ADD61673678C00C82F90 /* MainMenu.xib */,
 				D174ADC81673678C00C82F90 /* Supporting Files */,
 			);
@@ -348,7 +348,7 @@
 				D174AE2516737D0000C82F90 /* SBJsonWriter.m in Sources */,
 				D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */,
 				D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */,
-				D11F59D81673D2D20097B5C8 /* WKApi.m in Sources */,
+				D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

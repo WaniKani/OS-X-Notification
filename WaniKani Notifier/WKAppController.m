@@ -8,6 +8,7 @@
 
 #import "WKAppController.h"
 #import "WKNotifier.h"
+#import "WKApi.h"
 
 @implementation WKAppController
 
@@ -49,6 +50,15 @@
     // Start 5 min check timer
     NSTimer *timer;
     timer = [NSTimer scheduledTimerWithTimeInterval: 300 target: self selector: @selector(checkNotification:) userInfo: nil repeats: YES];
+    
+    WKApi *api = [[WKApi alloc] init];
+    [api setApiKey:@"81300a2384ed6e9ae11ea84d17b44076"];
+    [api updateAllData];
+    NSLog(@"%@", [api username]);
+    NSLog(@"%@", [api level]);
+    NSLog(@"%@", [api reviewsAvailableNextDay]);
+    
+    
 }
 
 - (IBAction)showPreferences:(id)sender {
