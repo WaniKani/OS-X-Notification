@@ -7,13 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SBJson.h"
-
 
 @interface WKNotifier : NSObject <NSUserNotificationCenterDelegate>
 
 @property NSNumber *reviewsAvailable;
-
 
 - (void)sendNotification;
 

@@ -11,10 +11,27 @@
 #import "WKNotifier.h"
 
 @interface WKAppController : NSObject{
+    IBOutlet NSWindow *window;
+    
     NSStatusItem *statusItem;
     IBOutlet NSMenu *statusMenu;
-    IBOutlet NSWindow *window;
+    IBOutlet NSMenuItem *reviewsNextHourMenu;
+    IBOutlet NSMenuItem *reviewsNextDayMenu;
+    
     IBOutlet NSTextField *apiKeyTextfield;
+    
+    IBOutlet NSImageView *userImage;
+    IBOutlet NSTextField *userName;
+    IBOutlet NSTextField *userSect;
+    IBOutlet NSTextField *userLevel;
+    IBOutlet NSTextField *userTopicCount;
+    IBOutlet NSTextField *userPostCount;
+    
+    IBOutlet NSTextField *userRadicalText;
+    IBOutlet NSLevelIndicator *userRadicalProgress;
+    
+    IBOutlet NSTextField *userKanjiText;
+    IBOutlet NSLevelIndicator *userKanjiProgress;
     
     WKApi *api;
     WKNotifier *notifcation;

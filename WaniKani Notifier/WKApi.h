@@ -19,11 +19,11 @@
 }
 
 //Conection Info
-@property NSString *apiKey;
+@property (strong) NSString *apiKey;
 
 //UserInfo
 @property NSString *username;
-@property NSString *gravatar;
+@property NSURL *gravatar;
 @property NSString *title;
 @property NSNumber *level;
 @property NSString *creationDate;

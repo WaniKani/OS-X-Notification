@@ -31,10 +31,10 @@
     NSDictionary *requestedInformation = [jsonObject objectForKey:@"user_information"];
     
     _username = [requestedInformation objectForKey:@"username"];
-    _gravatar = [requestedInformation objectForKey:@"gravatar"];
-    _gravatar = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@", _gravatar];
+    NSString *gravatId = [requestedInformation objectForKey:@"gravatar"];
+    _gravatar = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@?s=180", gravatId]];
     _level = [requestedInformation objectForKey:@"level"];
-    _title = [requestedInformation objectForKey:@"level"];
+    _title = [requestedInformation objectForKey:@"title"];
     _creationDate = [requestedInformation objectForKey:@"creation_date"];
 }
 

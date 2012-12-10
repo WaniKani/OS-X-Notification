@@ -11,6 +11,8 @@
 @implementation WKNotifier
 
 - (void)sendNotification{
+    if(_reviewsAvailable!=0){
+        
     NSString *notificationText;
     
     if([_reviewsAvailable intValue]==1){
@@ -30,6 +32,8 @@
     [notification setOtherButtonTitle: @"Be Lazy :("];
     
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        
+    }
 }
 
 @end

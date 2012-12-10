@@ -44,8 +44,10 @@
         
     }
 
+    //Set Up API-Checker Timer
     NSTimer *checkApiKeyTimer;
     checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+
 }
 
 -(void)intervalTimer:(id)sender;{
@@ -82,18 +84,45 @@
         
         if(secondsBetweenInt < -10){
             NSTimer *checkApiKeyTimer;
-            checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 10 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+            checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 30 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
         }
         else{
             
             NSTimer *reviewTimer;
             reviewTimer = [NSTimer scheduledTimerWithTimeInterval: secondsBetweenInt target: self selector: @selector(setupNotification:) userInfo: nil repeats: NO];
         }
+        
+    
+        NSImage *image = [[NSImage alloc] initWithData:[NSData dataWithContentsOfURL:[api gravatar]]];
+        [userImage setImage:image];
+        NSLog(@"%@",userImage);
+        
+        [userName setStringValue:[NSString stringWithFormat:@"%@",[api username]]];
+        NSLog(@"%@",[api username]);
+        [userSect setStringValue:[NSString stringWithFormat:@"Sect of %@",[api title]]];
+        [userLevel setStringValue:[NSString stringWithFormat:@"%@",[api level]]];
+        
+        [userRadicalText setStringValue:[NSString stringWithFormat:@"%@/%@",[api radicalsProgress],[api radicalsTotal]]];
 
+        [userRadicalProgress setMaxValue:[[api radicalsTotal] doubleValue]-1];
+        [userRadicalProgress setTickMarkPosition:[[api radicalsProgress] doubleValue]];
+        
+        [userKanjiText setStringValue:[NSString stringWithFormat:@"%@/%@",[api kanjiProgress],[api kanjiTotal]]];
+        
+        [userKanjiProgress setMaxValue:[[api kanjiTotal] doubleValue]-1];
+        [userKanjiProgress setTickMarkPosition:[[api kanjiProgress] doubleValue]];
+        
+        NSLog(@"Userpanel rendered");
+        
+        [reviewsNextHourMenu setTitle:[NSString stringWithFormat:@"Reviews next Hour: %@",[api reviewsAvailableNextHour]]];
+        [reviewsNextDayMenu setTitle:[NSString stringWithFormat:@"Reviews next Day: %@",[api reviewsAvailableNextDay]]];
+         NSLog(@"%@",[api reviewsAvailableNextHour]);
+        NSLog(@"Menu rendered");
+        
     }
     else{
         NSTimer *checkApiKeyTimer;
-        checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 10 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+        checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 30 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
     }
 }
 
