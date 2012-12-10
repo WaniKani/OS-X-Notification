@@ -32,6 +32,7 @@
     
     _username = [requestedInformation objectForKey:@"username"];
     _gravatar = [requestedInformation objectForKey:@"gravatar"];
+    _gravatar = [NSString stringWithFormat:@"http://www.gravatar.com/avatar/%@", _gravatar];
     _level = [requestedInformation objectForKey:@"level"];
     _title = [requestedInformation objectForKey:@"level"];
     _creationDate = [requestedInformation objectForKey:@"creation_date"];

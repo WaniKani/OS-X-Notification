@@ -26,12 +26,12 @@
 @property NSString *gravatar;
 @property NSString *title;
 @property NSNumber *level;
-@property NSDate *creationDate;
+@property NSString *creationDate;
 
 //StudyQueue
 @property NSNumber *lessonsAvailable;
 @property NSNumber *reviewsAvailable;
-@property NSDate *nextReviewDate;
+@property NSString *nextReviewDate;
 @property NSNumber *reviewsAvailableNextHour;
 @property NSNumber *reviewsAvailableNextDay;
 

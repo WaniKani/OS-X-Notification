@@ -7,19 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WKApi.h"
+#import "WKNotifier.h"
 
 @interface WKAppController : NSObject{
     NSStatusItem *statusItem;
     IBOutlet NSMenu *statusMenu;
     IBOutlet NSWindow *window;
+    IBOutlet NSTextField *apiKeyTextfield;
     
-    IBOutlet NSTextField *apiKey;
+    WKApi *api;
+    WKNotifier *notifcation;
 }
 
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)quit:(id)sender;
 
--(IBAction)Close:(id)sender;
 -(void)loadKeys;
+-(void)saveKeys;
 
 @end

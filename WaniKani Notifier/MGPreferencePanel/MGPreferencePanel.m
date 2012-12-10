@@ -85,7 +85,7 @@ NSString * const View3IconImageName = @"View3Icon";
 			view = view1;
 			break;
 		case 1:
-			[window setTitle: NSLocalizedString(@"Updates", @"")];
+			[window setTitle: NSLocalizedString(@"User", @"")];
 			view = view2;
 			break;
 		case 2:

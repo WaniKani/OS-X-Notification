@@ -7,31 +7,23 @@
 //
 
 #import "WKAppController.h"
-#import "WKNotifier.h"
 #import "WKApi.h"
 
 @implementation WKAppController
 
 #define kApiKey @"ApiKey"
 
+-(void)saveKeys{
+    [[NSUserDefaults standardUserDefaults] setObject:[apiKeyTextfield stringValue] forKey:kApiKey];
+}
+
 -(void)loadKeys{
-    [apiKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:kApiKey]];
-}
-
--(IBAction)Close:(id)sender{
-    [[NSUserDefaults standardUserDefaults] setObject:[apiKey stringValue] forKey:kApiKey];
-    [window orderOut:self];
-}
-
--(void)checkNotification:(id)sender;{
-    if([[apiKey stringValue] length] == 32)
-    {
-        WKNotifier *notifier = [WKNotifier alloc];
-        [notifier checkReviews:[apiKey stringValue]];
-    }
+    [apiKeyTextfield setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:kApiKey]];
 }
 
 -(void)awakeFromNib{
+    api = [WKApi alloc];
+    
     // Set up Statusbar Icon
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
@@ -44,21 +36,77 @@
     // Sets Default Values
     if([[NSUserDefaults standardUserDefaults] objectForKey:kApiKey] != nil)
     {
-        [apiKey setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:kApiKey]];
+        [self loadKeys];
+        NSString *apiKeyValue = [[NSUserDefaults standardUserDefaults] objectForKey:kApiKey];
+        [api setApiKey:apiKeyValue];
+        NSLog(@"%@",[api apiKey]);
+        [api updateAllData];
+        
     }
+
+    NSTimer *checkApiKeyTimer;
+    checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+}
+
+-(void)intervalTimer:(id)sender;{
+    if([[apiKeyTextfield stringValue] length] == 32)
+    {
+        [api setApiKey:[apiKeyTextfield stringValue]];
+        [api updateAllData];
+        
+        NSLog(@"API Key:%@/%@/%@",[apiKeyTextfield stringValue], [api apiKey], [api username]);
+        
+        NSString * nextReviewDateString = [api nextReviewDate];
+        NSTimeInterval nextReviewInterval = [nextReviewDateString doubleValue];
+        NSDate *nextReviewDate = [NSDate dateWithTimeIntervalSince1970:nextReviewInterval];
+        
+        NSDate *now = [NSDate date];
+        
+        NSDateFormatter* df_utc = [[NSDateFormatter alloc] init];
+        [df_utc setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+        [df_utc setDateFormat:@"dd-MM-yyyy HH:mm:ss"];
+        
+        NSString *utcNextReviewDate = [df_utc stringFromDate:nextReviewDate];
+        NSString *utcNow= [df_utc stringFromDate:now];
+        
+        NSLog(@"nextReview: %@, Now: %@", utcNextReviewDate, utcNow);
+        
+        NSDate *reviewDate = [df_utc dateFromString:utcNextReviewDate];
+        NSDate *nowDate = [df_utc dateFromString:utcNow];
+
+        
+        NSTimeInterval secondsBetween = [reviewDate timeIntervalSinceDate:nowDate];
+        int secondsBetweenInt = secondsBetween;
+        
+        NSLog(@"secondsBetween: %d", secondsBetweenInt);
+        
+        if(secondsBetweenInt < -10){
+            NSTimer *checkApiKeyTimer;
+            checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 10 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+        }
+        else{
+            
+            NSTimer *reviewTimer;
+            reviewTimer = [NSTimer scheduledTimerWithTimeInterval: secondsBetweenInt target: self selector: @selector(setupNotification:) userInfo: nil repeats: NO];
+        }
+
+    }
+    else{
+        NSTimer *checkApiKeyTimer;
+        checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 10 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+    }
+}
+
+- (void)setupNotification:(id)sender{
+    [api updateStudyQueue];
+    notifcation = [WKNotifier alloc];
+    [notifcation setReviewsAvailable:[api reviewsAvailable]];
+     NSLog(@"ReviewsAvailable: %@", [notifcation reviewsAvailable]);
+    [notifcation sendNotification];
+    NSLog(@"Notifications send");
     
-    // Start 5 min check timer
-    NSTimer *timer;
-    timer = [NSTimer scheduledTimerWithTimeInterval: 300 target: self selector: @selector(checkNotification:) userInfo: nil repeats: YES];
-    
-    WKApi *api = [[WKApi alloc] init];
-    [api setApiKey:@"81300a2384ed6e9ae11ea84d17b44076"];
-    [api updateAllData];
-    NSLog(@"%@", [api username]);
-    NSLog(@"%@", [api level]);
-    NSLog(@"%@", [api reviewsAvailableNextDay]);
-    
-    
+    NSTimer *checkApiKeyTimer;
+    checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 600 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
 }
 
 - (IBAction)showPreferences:(id)sender {
@@ -67,7 +115,9 @@
 }
 
 - (IBAction)quit:(id)sender {
+    [self saveKeys];
     [NSApp terminate:nil];
 }
+
 
 @end

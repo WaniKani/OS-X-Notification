@@ -9,16 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "SBJson.h"
 
-@class SBJsonStreamParser;
-@class SBJsonStreamParserAdapter;
 
-@interface WKNotifier : NSObject <NSUserNotificationCenterDelegate>{
-    NSURLConnection *theConnection;
-    SBJsonStreamParser *parser;
-    SBJsonStreamParserAdapter *adapter;
-}
+@interface WKNotifier : NSObject <NSUserNotificationCenterDelegate>
 
-- (void)checkReviews:(NSString*)apiKey;
-- (void)sendNotification:(int)reviewNumber;
+@property NSNumber *reviewsAvailable;
+
+
+- (void)sendNotification;
 
 @end
