@@ -961,7 +961,7 @@
 							<int key="NSCellFlags2">272630784</int>
 							<string key="NSContents"/>
 							<reference key="NSSupport" ref="653587183"/>
-							<string key="NSPlaceholderString">Level 5</string>
+							<string key="NSPlaceholderString">X</string>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="810322362"/>
 							<reference key="NSBackgroundColor" ref="597038633"/>
@@ -1067,7 +1067,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="949730879">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">71304192</int>
-							<string key="NSContents">Sect:</string>
+							<string key="NSContents">Title:</string>
 							<reference key="NSSupport" ref="561838172"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="980575767"/>
@@ -1110,7 +1110,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="627767963">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Level 5 Kanji Progress</string>
+							<string key="NSContents">Level X Kanji Progress</string>
 							<reference key="NSSupport" ref="561838172"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="225363285"/>
@@ -1133,8 +1133,7 @@
 							<int key="NSCellFlags2">0</int>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="777174932"/>
-							<double key="NSValue">9</double>
-							<double key="NSMaxValue">42</double>
+							<double key="NSMaxValue">1</double>
 							<double key="NSWarningValue">2</double>
 							<double key="NSCriticalValue">2</double>
 							<int key="NSIndicatorStyle">2</int>
@@ -1175,7 +1174,7 @@
 						<object class="NSTextFieldCell" key="NSCell" id="705090209">
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Level 5 Radical Progress</string>
+							<string key="NSContents">Level X Radical Progress</string>
 							<reference key="NSSupport" ref="561838172"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="468321656"/>
@@ -1198,8 +1197,7 @@
 							<int key="NSCellFlags2">0</int>
 							<string key="NSCellIdentifier">_NS:9</string>
 							<reference key="NSControlView" ref="737992440"/>
-							<double key="NSValue">25</double>
-							<double key="NSMaxValue">25</double>
+							<double key="NSMaxValue">1</double>
 							<double key="NSWarningValue">2</double>
 							<double key="NSCriticalValue">2</double>
 							<int key="NSIndicatorStyle">2</int>
@@ -2034,6 +2032,30 @@
 						<reference key="destination" ref="810322362"/>
 					</object>
 					<int key="connectionID">1546</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">minReviews</string>
+						<reference key="source" ref="970763256"/>
+						<reference key="destination" ref="48032178"/>
+					</object>
+					<int key="connectionID">1690</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">repeater</string>
+						<reference key="source" ref="970763256"/>
+						<reference key="destination" ref="320098932"/>
+					</object>
+					<int key="connectionID">1691</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">sound</string>
+						<reference key="source" ref="970763256"/>
+						<reference key="destination" ref="110518170"/>
+					</object>
+					<int key="connectionID">1692</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -5085,7 +5107,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1688</int>
+			<int key="maxID">1692</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -5172,8 +5194,11 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="apiKeyTextfield">NSTextField</string>
+						<string key="minReviews">NSPopUpButton</string>
+						<string key="repeater">NSPopUpButton</string>
 						<string key="reviewsNextDayMenu">NSMenuItem</string>
 						<string key="reviewsNextHourMenu">NSMenuItem</string>
+						<string key="sound">NSPopUpButton</string>
 						<string key="statusMenu">NSMenu</string>
 						<string key="userImage">NSImageView</string>
 						<string key="userKanjiProgress">NSLevelIndicator</string>
@@ -5192,6 +5217,14 @@
 							<string key="name">apiKeyTextfield</string>
 							<string key="candidateClassName">NSTextField</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="minReviews">
+							<string key="name">minReviews</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="repeater">
+							<string key="name">repeater</string>
+							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="reviewsNextDayMenu">
 							<string key="name">reviewsNextDayMenu</string>
 							<string key="candidateClassName">NSMenuItem</string>
@@ -5199,6 +5232,10 @@
 						<object class="IBToOneOutletInfo" key="reviewsNextHourMenu">
 							<string key="name">reviewsNextHourMenu</string>
 							<string key="candidateClassName">NSMenuItem</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="sound">
+							<string key="name">sound</string>
+							<string key="candidateClassName">NSPopUpButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="statusMenu">
 							<string key="name">statusMenu</string>

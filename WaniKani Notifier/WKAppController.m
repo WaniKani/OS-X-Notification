@@ -11,14 +11,23 @@
 
 @implementation WKAppController
 
-#define kApiKey @"ApiKey"
+#define kApiKey @"apiKey"
+#define kMinReviews @"minReviews"
+#define kRepeater @"repeater"
+#define kSound @"sound"
 
 -(void)saveKeys{
     [[NSUserDefaults standardUserDefaults] setObject:[apiKeyTextfield stringValue] forKey:kApiKey];
+    [[NSUserDefaults standardUserDefaults] setObject:[minReviews titleOfSelectedItem] forKey:kMinReviews];
+    [[NSUserDefaults standardUserDefaults] setObject:[repeater titleOfSelectedItem] forKey:kRepeater];
+    [[NSUserDefaults standardUserDefaults] setObject:[sound titleOfSelectedItem] forKey:kSound];
 }
 
 -(void)loadKeys{
     [apiKeyTextfield setStringValue:[[NSUserDefaults standardUserDefaults] objectForKey:kApiKey]];
+    [minReviews selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:kMinReviews]];
+    [repeater selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:kRepeater]];
+    [sound selectItemWithTitle:[[NSUserDefaults standardUserDefaults] objectForKey:kSound]];
 }
 
 -(void)awakeFromNib{
@@ -104,13 +113,13 @@
         
         [userRadicalText setStringValue:[NSString stringWithFormat:@"%@/%@",[api radicalsProgress],[api radicalsTotal]]];
 
-        [userRadicalProgress setMaxValue:[[api radicalsTotal] doubleValue]-1];
-        [userRadicalProgress setTickMarkPosition:[[api radicalsProgress] doubleValue]];
+        [userRadicalProgress setMaxValue:[[api radicalsTotal] doubleValue]];
+        [userRadicalProgress setDoubleValue:[[api radicalsProgress] doubleValue]];
         
         [userKanjiText setStringValue:[NSString stringWithFormat:@"%@/%@",[api kanjiProgress],[api kanjiTotal]]];
         
-        [userKanjiProgress setMaxValue:[[api kanjiTotal] doubleValue]-1];
-        [userKanjiProgress setTickMarkPosition:[[api kanjiProgress] doubleValue]];
+        [userKanjiProgress setMaxValue:[[api kanjiTotal] doubleValue]];
+        [userKanjiProgress setDoubleValue:[[api kanjiProgress] doubleValue]];
         
         NSLog(@"Userpanel rendered");
         
@@ -122,7 +131,7 @@
     }
     else{
         NSTimer *checkApiKeyTimer;
-        checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 30 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+        checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
     }
 }
 

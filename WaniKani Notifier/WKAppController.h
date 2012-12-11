@@ -19,6 +19,9 @@
     IBOutlet NSMenuItem *reviewsNextDayMenu;
     
     IBOutlet NSTextField *apiKeyTextfield;
+    IBOutlet NSPopUpButton *minReviews;
+    IBOutlet NSPopUpButton *repeater;
+    IBOutlet NSPopUpButton *sound;
     
     IBOutlet NSImageView *userImage;
     IBOutlet NSTextField *userName;
