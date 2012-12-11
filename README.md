@@ -15,4 +15,5 @@ ToDo
 ------------
 - Implement Advanced Settings logic
 - Save NSUserDefaults on quit.
+- Add timer for menu refresh.
 - Add More User Statistics
