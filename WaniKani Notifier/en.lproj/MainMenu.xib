@@ -715,7 +715,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="231953541"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 900}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -1307,10 +1307,21 @@
 							<object class="NSMenu" key="NSMenu" id="65141174">
 								<string key="NSTitle">OtherViews</string>
 								<array class="NSMutableArray" key="NSMenuItems">
+									<object class="NSMenuItem" id="991876965">
+										<reference key="NSMenu" ref="65141174"/>
+										<string key="NSTitle">No!</string>
+										<string key="NSKeyEquiv"/>
+										<int key="NSMnemonicLoc">2147483647</int>
+										<reference key="NSOnImage" ref="35465992"/>
+										<reference key="NSMixedImage" ref="502551668"/>
+										<string key="NSAction">_popUpItemAction:</string>
+										<reference key="NSTarget" ref="723649419"/>
+									</object>
 									<reference ref="165943848"/>
 								</array>
 								<reference key="NSMenuFont" ref="653587183"/>
 							</object>
+							<int key="NSSelectedIndex">1</int>
 							<int key="NSPreferredEdge">1</int>
 							<bool key="NSUsesItemFromMenu">YES</bool>
 							<bool key="NSAltersState">YES</bool>
@@ -4661,6 +4672,7 @@
 						<reference key="object" ref="65141174"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="165943848"/>
+							<reference ref="991876965"/>
 						</array>
 						<reference key="parent" ref="723649419"/>
 					</object>
@@ -4733,6 +4745,11 @@
 						<int key="objectID">1688</int>
 						<reference key="object" ref="984621633"/>
 						<reference key="parent" ref="269987590"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1693</int>
+						<reference key="object" ref="991876965"/>
+						<reference key="parent" ref="65141174"/>
 					</object>
 				</array>
 			</object>
@@ -4883,6 +4900,7 @@
 				<string key="1686.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1687.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="1688.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="1693.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="195.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="196.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -5107,7 +5125,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1692</int>
+			<int key="maxID">1693</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

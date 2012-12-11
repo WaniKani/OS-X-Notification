@@ -56,6 +56,10 @@
     //Set Up API-Checker Timer
     NSTimer *checkApiKeyTimer;
     checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+    
+    //Set Up Menu-Review Timer
+    NSTimer *menuReviewTimer;
+    menuReviewTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(menuReviewChecker:) userInfo: nil repeats: NO];
 
 }
 
@@ -123,15 +127,22 @@
         
         NSLog(@"Userpanel rendered");
         
-        [reviewsNextHourMenu setTitle:[NSString stringWithFormat:@"Reviews next Hour: %@",[api reviewsAvailableNextHour]]];
-        [reviewsNextDayMenu setTitle:[NSString stringWithFormat:@"Reviews next Day: %@",[api reviewsAvailableNextDay]]];
-         NSLog(@"%@",[api reviewsAvailableNextHour]);
-        NSLog(@"Menu rendered");
-        
     }
     else{
         NSTimer *checkApiKeyTimer;
         checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
+    }
+}
+
+-(void)menuReviewChecker:(id)sender{
+    if([[apiKeyTextfield stringValue] length] == 32)
+    {
+        [reviewsNextHourMenu setTitle:[NSString stringWithFormat:@"Reviews next Hour: %@",[api reviewsAvailableNextHour]]];
+        [reviewsNextDayMenu setTitle:[NSString stringWithFormat:@"Reviews next Day: %@",[api reviewsAvailableNextDay]]];
+        NSLog(@"Menu rendered");
+        
+        NSTimer *menuReviewTimer;
+        menuReviewTimer = [NSTimer scheduledTimerWithTimeInterval: 300 target: self selector: @selector(menuReviewChecker:) userInfo: nil repeats: YES];
     }
 }
 

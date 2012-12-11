@@ -11,7 +11,7 @@
 @implementation WKNotifier
 
 - (void)sendNotification{
-    if(_reviewsAvailable!=0){
+    if([_reviewsAvailable intValue]!=0){
         
     NSString *notificationText;
     
