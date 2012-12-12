@@ -13,6 +13,4 @@ More documentation coming soon.
 
 ToDo
 ------------
-- Implement Advanced Settings logic
-- Save NSUserDefaults on quit.
 - Add More User Statistics
