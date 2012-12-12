@@ -11,7 +11,7 @@
 @implementation WKNotifier
 
 - (void)sendNotification{
-    if([_reviewsAvailable intValue]!=0){
+    if([_reviewsAvailable intValue]>=[[self minReviews] intValue]){
         
     NSString *notificationText;
     
@@ -26,7 +26,10 @@
     
     notification.title = @"Review Available!";
     notification.informativeText = notificationText;
-    notification.soundName = @"review-time.mp3";
+    if([self sound] == YES)
+    {
+        notification.soundName = @"review-time.mp3";
+    }
     notification.hasActionButton = TRUE;
     notification.actionButtonTitle = @"Open Review";
     [notification setOtherButtonTitle: @"Be Lazy :("];

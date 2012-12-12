@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 #import "WKApi.h"
 #import "WKNotifier.h"
 
-@interface WKAppController : NSObject{
+
+@interface WKAppController : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>{
     IBOutlet NSWindow *window;
     
     NSStatusItem *statusItem;
@@ -36,6 +38,8 @@
     IBOutlet NSTextField *userKanjiText;
     IBOutlet NSLevelIndicator *userKanjiProgress;
     
+    NSNumber *lastReviewsAvailable;
+    
     WKApi *api;
     WKNotifier *notifcation;
 }
@@ -45,5 +49,7 @@
 
 -(void)loadKeys;
 -(void)saveKeys;
+
+- (BOOL)hasInternet;
 
 @end

@@ -13,7 +13,6 @@
 		D174ADC21673678C00C82F90 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D174ADC11673678C00C82F90 /* Cocoa.framework */; };
 		D174ADCC1673678C00C82F90 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D174ADCA1673678C00C82F90 /* InfoPlist.strings */; };
 		D174ADCE1673678C00C82F90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADCD1673678C00C82F90 /* main.m */; };
-		D174ADD51673678C00C82F90 /* WKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADD41673678C00C82F90 /* WKAppDelegate.m */; };
 		D174ADD81673678C00C82F90 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D174ADD61673678C00C82F90 /* MainMenu.xib */; };
 		D174ADDF1673696F00C82F90 /* alicrab.iconset in Resources */ = {isa = PBXBuildFile; fileRef = D174ADDE1673696F00C82F90 /* alicrab.iconset */; };
 		D174ADE31673698F00C82F90 /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = D174ADE21673698F00C82F90 /* Credits.rtfd */; };
@@ -54,8 +53,6 @@
 		D174ADCB1673678C00C82F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D174ADCD1673678C00C82F90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D174ADCF1673678C00C82F90 /* WaniKani Notifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaniKani Notifier-Prefix.pch"; sourceTree = "<group>"; };
-		D174ADD31673678C00C82F90 /* WKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAppDelegate.h; sourceTree = "<group>"; };
-		D174ADD41673678C00C82F90 /* WKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKAppDelegate.m; sourceTree = "<group>"; };
 		D174ADD71673678C00C82F90 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D174ADDE1673696F00C82F90 /* alicrab.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = alicrab.iconset; sourceTree = "<group>"; };
 		D174ADE21673698F00C82F90 /* Credits.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = Credits.rtfd; sourceTree = "<group>"; };
@@ -158,8 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				D174ADFB16737ABD00C82F90 /* Externals */,
-				D174ADD31673678C00C82F90 /* WKAppDelegate.h */,
-				D174ADD41673678C00C82F90 /* WKAppDelegate.m */,
 				D174ADF416736FDA00C82F90 /* WKAppController.h */,
 				D174ADF516736FDA00C82F90 /* WKAppController.m */,
 				D174AE2616737D1800C82F90 /* WKNotifier.h */,
@@ -331,7 +326,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D174ADCE1673678C00C82F90 /* main.m in Sources */,
-				D174ADD51673678C00C82F90 /* WKAppDelegate.m in Sources */,
 				D174ADF616736FDA00C82F90 /* WKAppController.m in Sources */,
 				D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */,
 				D174AE1A16737D0000C82F90 /* NSObject+SBJson.m in Sources */,
