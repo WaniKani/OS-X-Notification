@@ -17,6 +17,11 @@
 #define kSound @"sound"
 #define kFirstLaunch @"FirstLaunch"
 
+- (NSURL*)waniKaniUrl
+{
+  return [NSURL URLWithString: @"http://www.wanikani.com"];
+}
+
 -(void)saveKeys{
     [[NSUserDefaults standardUserDefaults] setObject:[apiKeyTextfield stringValue] forKey:kApiKey];
     [[NSUserDefaults standardUserDefaults] setObject:[minReviews titleOfSelectedItem] forKey:kMinReviews];
@@ -231,6 +236,11 @@
     {
         checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 600 target: self selector: @selector(intervalTimer:) userInfo: nil repeats: NO];
     }
+}
+
+- (IBAction)visitWaniKani: (id)sender
+{
+  [[NSWorkspace sharedWorkspace] openURL: self.waniKaniUrl];
 }
 
 - (IBAction)showPreferences:(id)sender {

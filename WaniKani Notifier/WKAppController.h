@@ -44,6 +44,7 @@
     WKNotifier *notifcation;
 }
 
+- (IBAction)visitWaniKani: (id)sender;
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)quit:(id)sender;
 
