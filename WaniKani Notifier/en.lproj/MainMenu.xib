@@ -297,6 +297,10 @@
         </menu>
         <menu id="642">
             <items>
+                <menuItem title="Profile View" enabled="NO" id="xan-P8-zB5">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="Rxh-ud-6S0"/>
                 <menuItem title="Visit WaniKani…" id="dAC-2r-1tE">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -363,6 +367,14 @@
                 <outlet property="_userKanjiProgress" destination="864" id="1378"/>
                 <outlet property="apiKeyTextfield" destination="725" id="1110"/>
                 <outlet property="minReviews" destination="1343" id="1690"/>
+                <outlet property="profileMenuImage" destination="wRl-S5-wDU" id="axj-sv-fWL"/>
+                <outlet property="profileMenuItem" destination="xan-P8-zB5" id="e6s-T8-q5x"/>
+                <outlet property="profileMenuKanjiText" destination="ga9-du-zan" id="3dl-Wh-dWM"/>
+                <outlet property="profileMenuLevel" destination="whL-Cn-sHI" id="AKS-uB-bFs"/>
+                <outlet property="profileMenuName" destination="Gjd-fU-p2m" id="3Fg-HX-tek"/>
+                <outlet property="profileMenuRadicalText" destination="riH-mV-vcT" id="vqV-np-7Y9"/>
+                <outlet property="profileMenuSect" destination="zUk-I8-6p5" id="r43-pJ-10r"/>
+                <outlet property="profileMenuView" destination="32i-sI-1P9" id="JNn-Jl-C0M"/>
                 <outlet property="repeater" destination="1619" id="1691"/>
                 <outlet property="reviewsNextDayMenu" destination="1292" id="1496"/>
                 <outlet property="reviewsNextHourMenu" destination="1291" id="1495"/>
@@ -760,6 +772,137 @@
             </constraints>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="685"/>
+        <customView id="32i-sI-1P9" userLabel="Menu Profile View">
+            <rect key="frame" x="0.0" y="0.0" width="294" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView translatesAutoresizingMaskIntoConstraints="NO" id="wRl-S5-wDU">
+                    <rect key="frame" x="5" y="5" width="70" height="70"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="u70-1H-cOj"/>
+                        <constraint firstAttribute="height" constant="64" id="xGG-ut-PwT"/>
+                    </constraints>
+                    <imageCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" image="default-avatar" id="pNo-qd-aq8"/>
+                </imageView>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-hd-WCI">
+                    <rect key="frame" x="78" y="8" width="63" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="59" id="22r-dL-FKG"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Radicals:" id="h3G-ZZ-I5w">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="riH-mV-vcT" userLabel="Radical Progress Text">
+                    <rect key="frame" x="145" y="8" width="45" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="41" id="0Ic-oF-ohy"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="1/xx" id="7cy-4K-1Rx">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Op8-5I-Nah">
+                    <rect key="frame" x="196" y="8" width="42" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="38" id="xTx-2w-OfR"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Kanji:" id="kzU-Go-Mhg">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ga9-du-zan" userLabel="Kanji Progress Text">
+                    <rect key="frame" x="242" y="8" width="45" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="41" id="V0l-f5-XYh"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="1/xx" id="XPj-5P-WVa">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ole-uu-yj4" userLabel="Username">
+                    <rect key="frame" x="243" y="53" width="239" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="235" id="KVW-Hz-621"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="fVq-LD-oEH">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjd-fU-p2m" userLabel="Username Label">
+                    <rect key="frame" x="78" y="59" width="210" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="206" id="oxW-uZ-zYc"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Username" id="GfP-Ob-cqo">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zUk-I8-6p5" userLabel="Sect Label">
+                    <rect key="frame" x="78" y="42" width="210" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="206" id="OxK-gV-rGw"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Sect" id="XAF-Ym-ffQ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="whL-Cn-sHI" userLabel="Sect Label">
+                    <rect key="frame" x="78" y="25" width="210" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="206" id="F0H-Ai-bdT"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" placeholderString="Level" id="JLp-fI-3qn">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="zUk-I8-6p5" firstAttribute="top" secondItem="Gjd-fU-p2m" secondAttribute="bottom" id="13T-al-kac"/>
+                <constraint firstItem="zUk-I8-6p5" firstAttribute="leading" secondItem="wRl-S5-wDU" secondAttribute="trailing" constant="8" id="1go-LL-nW3"/>
+                <constraint firstItem="Gjd-fU-p2m" firstAttribute="top" secondItem="32i-sI-1P9" secondAttribute="top" constant="4" id="5HS-rC-v4S"/>
+                <constraint firstItem="ga9-du-zan" firstAttribute="leading" secondItem="Op8-5I-Nah" secondAttribute="trailing" constant="8" id="73d-S2-ENb"/>
+                <constraint firstItem="wRl-S5-wDU" firstAttribute="top" secondItem="32i-sI-1P9" secondAttribute="top" constant="8" id="7xb-YT-nxc"/>
+                <constraint firstItem="wRl-S5-wDU" firstAttribute="leading" secondItem="32i-sI-1P9" secondAttribute="leading" constant="8" id="GIT-KP-H8x"/>
+                <constraint firstItem="oTL-hd-WCI" firstAttribute="top" secondItem="whL-Cn-sHI" secondAttribute="bottom" id="J0n-fv-n1I"/>
+                <constraint firstItem="riH-mV-vcT" firstAttribute="top" secondItem="whL-Cn-sHI" secondAttribute="bottom" id="ORP-W1-bZj"/>
+                <constraint firstItem="ga9-du-zan" firstAttribute="top" secondItem="whL-Cn-sHI" secondAttribute="bottom" id="P0U-fU-6d7"/>
+                <constraint firstItem="whL-Cn-sHI" firstAttribute="top" secondItem="zUk-I8-6p5" secondAttribute="bottom" id="XK9-MB-m1W"/>
+                <constraint firstItem="ole-uu-yj4" firstAttribute="top" secondItem="32i-sI-1P9" secondAttribute="top" constant="10" id="Ymz-c9-EF1"/>
+                <constraint firstItem="riH-mV-vcT" firstAttribute="leading" secondItem="oTL-hd-WCI" secondAttribute="trailing" constant="8" id="dJK-wZ-OWl"/>
+                <constraint firstItem="whL-Cn-sHI" firstAttribute="leading" secondItem="wRl-S5-wDU" secondAttribute="trailing" constant="8" id="ffp-2u-jBQ"/>
+                <constraint firstAttribute="trailing" secondItem="Gjd-fU-p2m" secondAttribute="trailing" constant="8" id="fhI-Q3-I3I"/>
+                <constraint firstItem="oTL-hd-WCI" firstAttribute="leading" secondItem="wRl-S5-wDU" secondAttribute="trailing" constant="8" id="gn3-pF-Aco"/>
+                <constraint firstItem="Op8-5I-Nah" firstAttribute="leading" secondItem="riH-mV-vcT" secondAttribute="trailing" constant="10" id="oJP-Yf-NSU"/>
+                <constraint firstItem="Op8-5I-Nah" firstAttribute="top" secondItem="whL-Cn-sHI" secondAttribute="bottom" id="ofO-GP-LVh"/>
+                <constraint firstItem="ole-uu-yj4" firstAttribute="leading" secondItem="32i-sI-1P9" secondAttribute="leading" constant="245" id="rmE-uy-9aT"/>
+            </constraints>
+        </customView>
     </objects>
     <resources>
         <image name="default-avatar" width="300" height="300"/>

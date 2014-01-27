@@ -12,34 +12,34 @@
 @class SBJsonStreamParser;
 @class SBJsonStreamParserAdapter;
 
-@interface WKApi : NSObject{
-    NSURLConnection *theConnection;
-    SBJsonStreamParser *parser;
-    SBJsonStreamParserAdapter *adapter;
+@interface WKApi : NSObject {
+  NSURLConnection* theConnection;
+  SBJsonStreamParser* parser;
+  SBJsonStreamParserAdapter* adapter;
 }
 
 //Conection Info
-@property (strong) NSString *apiKey;
+@property (strong) NSString* apiKey;
 
 //UserInfo
-@property NSString *username;
-@property NSURL *gravatar;
-@property NSString *title;
-@property NSNumber *level;
-@property NSString *creationDate;
+@property NSString* username;
+@property NSURL* gravatar;
+@property NSString* title;
+@property NSNumber* level;
+@property NSString* creationDate;
 
 //StudyQueue
-@property NSNumber *lessonsAvailable;
-@property NSNumber *reviewsAvailable;
-@property NSString *nextReviewDate;
-@property NSNumber *reviewsAvailableNextHour;
-@property NSNumber *reviewsAvailableNextDay;
+@property NSNumber* lessonsAvailable;
+@property NSNumber* reviewsAvailable;
+@property NSString* nextReviewDate;
+@property NSNumber* reviewsAvailableNextHour;
+@property NSNumber* reviewsAvailableNextDay;
 
 //LevelProgression
-@property NSNumber *radicalsProgress;
-@property NSNumber *radicalsTotal;
-@property NSNumber *kanjiProgress;
-@property NSNumber *kanjiTotal;
+@property NSNumber* radicalsProgress;
+@property NSNumber* radicalsTotal;
+@property NSNumber* kanjiProgress;
+@property NSNumber* kanjiTotal;
 
 - (void)updateAllData;
 - (void)updateUserInfo;

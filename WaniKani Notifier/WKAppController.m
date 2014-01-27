@@ -58,6 +58,8 @@
   [statusItem setAlternateImage: [NSImage imageNamed: @"menubar-invert.png"]];
   [statusItem setEnabled: YES];
 
+  [profileMenuItem setView: profileMenuView];
+
   // Sets Default Values
   if ( [[NSUserDefaults standardUserDefaults] objectForKey: kApiKey] != nil )
   {
@@ -169,8 +171,18 @@
 
     [userKanjiProgress setMaxValue: [[api kanjiTotal] doubleValue]];
     [userKanjiProgress setDoubleValue: [[api kanjiProgress] doubleValue]];
-
     NSLog(@"Userpanel rendered");
+
+    // Profile Menu
+    // TODO: abstract these values into a UserData object and use KVO to set all of
+    //  these items
+    [profileMenuImage setImage: image];
+    [profileMenuName setStringValue: [NSString stringWithFormat: @"%@", [api username]]];
+    [profileMenuSect setStringValue: [NSString stringWithFormat: @"Sect of %@", [api title]]];
+    [profileMenuLevel setStringValue: [NSString stringWithFormat: @"Level %@", [api level]]];
+    [profileMenuRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@", [api radicalsProgress], [api radicalsTotal]]];
+    [profileMenuKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@", [api kanjiProgress], [api kanjiTotal]]];
+    NSLog(@"Profile menu rendered");
   }
   else
   {
