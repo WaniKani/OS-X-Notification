@@ -63,7 +63,7 @@
   if ( reviewCount > 1 )
   {
     notificationText = [NSString stringWithFormat:
-                        NSLocalizedString(@"There are %@ reviews available at Wanikani.com", @"NSUserNotification text"),
+                        NSLocalizedString(@"There are %u reviews available at Wanikani.com", @"NSUserNotification text"),
                         reviewCount];
   }
 
