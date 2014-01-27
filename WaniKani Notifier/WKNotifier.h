@@ -10,8 +10,8 @@
 
 @interface WKNotifier : NSObject <NSUserNotificationCenterDelegate>
 
-@property NSNumber *reviewsAvailable;
-@property NSNumber *minReviews;
+@property NSNumber* reviewsAvailable;
+@property NSNumber* minReviews;
 @property BOOL sound;
 
 - (void)sendNotification;

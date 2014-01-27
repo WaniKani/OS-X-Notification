@@ -11,44 +11,55 @@
 #import "WKApi.h"
 #import "WKNotifier.h"
 
-
 @interface WKAppController : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>{
-    IBOutlet NSWindow *window;
-    
-    NSStatusItem *statusItem;
-    IBOutlet NSMenu *statusMenu;
-    IBOutlet NSMenuItem *reviewsNextHourMenu;
-    IBOutlet NSMenuItem *reviewsNextDayMenu;
-    
-    IBOutlet NSTextField *apiKeyTextfield;
-    IBOutlet NSPopUpButton *minReviews;
-    IBOutlet NSPopUpButton *repeater;
-    IBOutlet NSPopUpButton *sound;
-    
-    IBOutlet NSImageView *userImage;
-    IBOutlet NSTextField *userName;
-    IBOutlet NSTextField *userSect;
-    IBOutlet NSTextField *userLevel;
-    IBOutlet NSTextField *userTopicCount;
-    IBOutlet NSTextField *userPostCount;
-    
-    IBOutlet NSTextField *userRadicalText;
-    IBOutlet NSLevelIndicator *userRadicalProgress;
-    
-    IBOutlet NSTextField *userKanjiText;
-    IBOutlet NSLevelIndicator *userKanjiProgress;
-    
-    NSNumber *lastReviewsAvailable;
-    
-    WKApi *api;
-    WKNotifier *notifcation;
+  IBOutlet NSWindow* window;
+
+  NSStatusItem* statusItem;
+  IBOutlet NSMenu* statusMenu;
+
+  IBOutlet NSMenuItem*          profileMenuItem;
+  IBOutlet NSView*              profileMenuView;
+  IBOutlet NSImageView*         profileMenuImage;
+  IBOutlet NSTextField*         profileMenuName;
+  IBOutlet NSTextField*         profileMenuSect;
+  IBOutlet NSTextField*         profileMenuLevel;
+  IBOutlet NSTextField*         profileMenuRadicalText;
+  IBOutlet NSTextField*         profileMenuKanjiText;
+
+  // Reviews
+  IBOutlet NSMenuItem* reviewsNextHourMenu;
+  IBOutlet NSMenuItem* reviewsNextDayMenu;
+
+  IBOutlet NSTextField* apiKeyTextfield;
+  IBOutlet NSPopUpButton* minReviews;
+  IBOutlet NSPopUpButton* repeater;
+  IBOutlet NSPopUpButton* sound;
+
+  IBOutlet NSImageView* userImage;
+  IBOutlet NSTextField* userName;
+  IBOutlet NSTextField* userSect;
+  IBOutlet NSTextField* userLevel;
+  IBOutlet NSTextField* userTopicCount;
+  IBOutlet NSTextField* userPostCount;
+
+  IBOutlet NSTextField* userRadicalText;
+  IBOutlet NSLevelIndicator* userRadicalProgress;
+
+  IBOutlet NSTextField* userKanjiText;
+  IBOutlet NSLevelIndicator* userKanjiProgress;
+
+  NSNumber* lastReviewsAvailable;
+
+  WKApi* api;
+  WKNotifier* notifcation;
 }
 
-- (IBAction)showPreferences:(id)sender;
-- (IBAction)quit:(id)sender;
+- (IBAction)visitWaniKani: (id)sender;
+- (IBAction)showPreferences: (id)sender;
+- (IBAction)quit: (id)sender;
 
--(void)loadKeys;
--(void)saveKeys;
+- (void)loadKeys;
+- (void)saveKeys;
 
 - (BOOL)hasInternet;
 
