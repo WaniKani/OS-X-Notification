@@ -9,6 +9,18 @@
 #import "WKAppController.h"
 #import "WKApi.h"
 
+// Models
+#import "WKUser.h"
+#import "WKStudyQueue.h"
+#import "WKLevelProgression.h"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+@interface WKAppController ()
+@property (nonatomic, readonly) NSUserDefaults* userDefaults;
+@property (nonatomic, readonly) NSURL* waniKaniUrl;
+@end
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKAppController
 
 #define kApiKey @"apiKey"
@@ -17,6 +29,11 @@
 #define kSound @"sound"
 #define kFirstLaunch @"FirstLaunch"
 
+- (NSUserDefaults*)userDefaults
+{
+	return [NSUserDefaults standardUserDefaults];
+}
+
 - (NSURL*)waniKaniUrl
 {
   return [NSURL URLWithString: @"https://www.wanikani.com"];
@@ -24,30 +41,30 @@
 
 - (void)saveKeys
 {
-  [[NSUserDefaults standardUserDefaults] setObject: [apiKeyTextfield stringValue]
-                                            forKey: kApiKey];
-  [[NSUserDefaults standardUserDefaults] setObject: [minReviews titleOfSelectedItem]
-                                            forKey: kMinReviews];
-  [[NSUserDefaults standardUserDefaults] setObject: [repeater titleOfSelectedItem]
-                                            forKey: kRepeater];
-  [[NSUserDefaults standardUserDefaults] setObject: [sound titleOfSelectedItem]
-                                            forKey: kSound];
-  [[NSUserDefaults standardUserDefaults] synchronize];
+  [self.userDefaults setObject: [apiKeyTextfield stringValue]
+												forKey: kApiKey];
+  [self.userDefaults setObject: [minReviews titleOfSelectedItem]
+												forKey: kMinReviews];
+  [self.userDefaults setObject: [repeater titleOfSelectedItem]
+												forKey: kRepeater];
+  [self.userDefaults setObject: [sound titleOfSelectedItem]
+												forKey: kSound];
+  [self.userDefaults synchronize];
 }
 
 - (void)loadKeys
 {
-  [apiKeyTextfield setStringValue: [[NSUserDefaults standardUserDefaults] objectForKey: kApiKey]];
-  [minReviews selectItemWithTitle: [[NSUserDefaults standardUserDefaults] objectForKey: kMinReviews]];
-  [repeater selectItemWithTitle: [[NSUserDefaults standardUserDefaults] objectForKey: kRepeater]];
-  [sound selectItemWithTitle: [[NSUserDefaults standardUserDefaults] objectForKey: kSound]];
+  [apiKeyTextfield setStringValue: [self.userDefaults objectForKey: kApiKey]];
+  [minReviews selectItemWithTitle: [self.userDefaults objectForKey: kMinReviews]];
+  [repeater selectItemWithTitle: [self.userDefaults objectForKey: kRepeater]];
+  [sound selectItemWithTitle: [self.userDefaults objectForKey: kSound]];
 }
 
 - (void)applicationDidFinishLaunching: (NSNotification*)aNotification
 {
   [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate: self];
 
-  api = [WKApi alloc];
+  api = [[WKApi alloc] init];
 
   // Set up Statusbar Icon
   statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSVariableStatusItemLength];
@@ -61,18 +78,18 @@
   [profileMenuItem setView: profileMenuView];
 
   // Sets Default Values
-  if ( [[NSUserDefaults standardUserDefaults] objectForKey: kApiKey] != nil )
+  if ( [self.userDefaults objectForKey: kApiKey] != nil )
   {
     [self loadKeys];
   }
 
   // Sets Default Values
-  if ( [[NSUserDefaults standardUserDefaults] objectForKey: kFirstLaunch] == nil )
+  if ( [self.userDefaults objectForKey: kFirstLaunch] == nil )
   {
     [NSApp activateIgnoringOtherApps: YES];
     [window makeKeyAndOrderFront: nil];
-    [[NSUserDefaults standardUserDefaults] setObject: @"NOPE"
-                                              forKey: kFirstLaunch];
+    [self.userDefaults setObject: @"NOPE"
+													forKey: kFirstLaunch];
   }
 
   //Set Up API-Checker Timer
@@ -111,11 +128,7 @@
     [api setApiKey: [apiKeyTextfield stringValue]];
     [api updateAllData];
 
-    NSLog(@"API Key:%@/%@/%@", [apiKeyTextfield stringValue], [api apiKey], [api username]);
-
-    NSString* nextReviewDateString = [api nextReviewDate];
-    NSTimeInterval nextReviewInterval = [nextReviewDateString doubleValue];
-    NSDate* nextReviewDate = [NSDate dateWithTimeIntervalSince1970: nextReviewInterval];
+    NSLog(@"API Key:%@/%@/%@", [apiKeyTextfield stringValue], api.apiKey, api.user.username);
 
     NSDate* now = [NSDate date];
 
@@ -123,7 +136,7 @@
     [df_utc setTimeZone: [NSTimeZone timeZoneWithName: @"UTC"]];
     [df_utc setDateFormat: @"dd-MM-yyyy HH:mm:ss"];
 
-    NSString* utcNextReviewDate = [df_utc stringFromDate: nextReviewDate];
+    NSString* utcNextReviewDate = [df_utc stringFromDate: api.studyQueue.nextReviewDate];
     NSString* utcNow = [df_utc stringFromDate: now];
 
     NSLog(@"nextReview: %@, Now: %@", utcNextReviewDate, utcNow);
@@ -155,33 +168,41 @@
                                                     repeats: NO];
     }
 
-    NSImage* image = [[NSImage alloc] initWithData: [NSData dataWithContentsOfURL: [api gravatar]]];
+    NSImage* image = [[NSImage alloc] initWithData: [NSData dataWithContentsOfURL: api.user.gravatar]];
     [userImage setImage: image];
 
-    [userName setStringValue: [NSString stringWithFormat: @"%@", [api username]]];
-    [userSect setStringValue: [NSString stringWithFormat: @"Sect of %@", [api title]]];
-    [userLevel setStringValue: [NSString stringWithFormat: @"%@", [api level]]];
+    [userName setStringValue: [NSString stringWithFormat: @"%@", api.user.username]];
+    [userSect setStringValue: [NSString stringWithFormat: @"Sect of %@", api.user.title]];
+    [userLevel setStringValue: [NSString stringWithFormat: @"%@", api.user.level]];
 
-    [userRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@", [api radicalsProgress], [api radicalsTotal]]];
+    [userRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@",
+																			api.levelProgression.radicalsProgress,
+																			api.levelProgression.radicalsTotal]];
 
-    [userRadicalProgress setMaxValue: [[api radicalsTotal] doubleValue]];
-    [userRadicalProgress setDoubleValue: [[api radicalsProgress] doubleValue]];
+    [userRadicalProgress setMaxValue: [api.levelProgression.radicalsTotal doubleValue]];
+    [userRadicalProgress setDoubleValue: [api.levelProgression.radicalsProgress doubleValue]];
 
-    [userKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@", [api kanjiProgress], [api kanjiTotal]]];
+    [userKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@",
+																		api.levelProgression.kanjiProgress,
+																		api.levelProgression.kanjiTotal]];
 
-    [userKanjiProgress setMaxValue: [[api kanjiTotal] doubleValue]];
-    [userKanjiProgress setDoubleValue: [[api kanjiProgress] doubleValue]];
+    [userKanjiProgress setMaxValue: [api.levelProgression.kanjiTotal doubleValue]];
+    [userKanjiProgress setDoubleValue: [api.levelProgression.kanjiProgress doubleValue]];
     NSLog(@"Userpanel rendered");
 
     // Profile Menu
     // TODO: abstract these values into a UserData object and use KVO to set all of
     //  these items
     [profileMenuImage setImage: image];
-    [profileMenuName setStringValue: [NSString stringWithFormat: @"%@", [api username]]];
-    [profileMenuSect setStringValue: [NSString stringWithFormat: @"Sect of %@", [api title]]];
-    [profileMenuLevel setStringValue: [NSString stringWithFormat: @"Level %@", [api level]]];
-    [profileMenuRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@", [api radicalsProgress], [api radicalsTotal]]];
-    [profileMenuKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@", [api kanjiProgress], [api kanjiTotal]]];
+    [profileMenuName setStringValue: [NSString stringWithFormat: @"%@", api.user.username]];
+    [profileMenuSect setStringValue: [NSString stringWithFormat: @"Sect of %@", api.user.title]];
+    [profileMenuLevel setStringValue: [NSString stringWithFormat: @"Level %@", api.user.level]];
+    [profileMenuRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@",
+																						 api.levelProgression.radicalsProgress,
+																						 api.levelProgression.radicalsTotal]];
+    [profileMenuKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@",
+																					 api.levelProgression.kanjiProgress,
+																					 api.levelProgression.kanjiTotal]];
     NSLog(@"Profile menu rendered");
   }
   else
@@ -199,8 +220,10 @@
 {
   if ( [[apiKeyTextfield stringValue] length] == 32 && [self hasInternet] )
   {
-    [reviewsNextHourMenu setTitle: [NSString stringWithFormat: @"Reviews next Hour: %@", [api reviewsAvailableNextHour]]];
-    [reviewsNextDayMenu setTitle: [NSString stringWithFormat: @"Reviews next Day: %@", [api reviewsAvailableNextDay]]];
+    [reviewsNextHourMenu setTitle: [NSString stringWithFormat: @"Reviews next Hour: %@",
+																		api.studyQueue.reviewsAvailableNextHour]];
+    [reviewsNextDayMenu setTitle: [NSString stringWithFormat: @"Reviews next Day: %@",
+																	 api.studyQueue.reviewsAvailableNextDay]];
     NSLog(@"Menu rendered");
 
     NSTimer* menuReviewTimer;
@@ -260,9 +283,9 @@
 
   if ( [@"No!" isEqualToString :[repeater titleOfSelectedItem]] )
   {
-    if ( lastReviewsAvailable == [api reviewsAvailable] )
+    if ( lastReviewsAvailable == api.studyQueue.reviewsAvailable )
     {
-      [notifcation setReviewsAvailable: [api reviewsAvailable]];
+      [notifcation setReviewsAvailable: api.studyQueue.reviewsAvailable];
       NSLog(@"ReviewsAvailable: %@", [notifcation reviewsAvailable]);
       [notifcation sendNotification];
       NSLog(@"Notifications send");
@@ -270,15 +293,15 @@
   }
   else
   {
-    [notifcation setReviewsAvailable: [api reviewsAvailable]];
+    [notifcation setReviewsAvailable: api.studyQueue.reviewsAvailable];
     NSLog(@"ReviewsAvailable: %@", [notifcation reviewsAvailable]);
     [notifcation sendNotification];
     NSLog(@"Notifications send");
   }
-  lastReviewsAvailable = [api reviewsAvailable];
+  lastReviewsAvailable = api.studyQueue.reviewsAvailable;
 
   NSTimer* checkApiKeyTimer;
-  if ( [@"1 Minute" isEqualToString :[repeater titleOfSelectedItem]] )
+  if ( [@"1 Minute" isEqualToString: [repeater titleOfSelectedItem]] )
   {
     checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 60
                                                         target: self
@@ -286,7 +309,8 @@
                                                       userInfo: nil
                                                        repeats: NO];
   }
-  if ( [@"5 Minutes" isEqualToString :[repeater titleOfSelectedItem]] )
+  
+	if ( [@"5 Minutes" isEqualToString: [repeater titleOfSelectedItem]] )
   {
     checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 300
                                                         target: self
@@ -294,7 +318,8 @@
                                                       userInfo: nil
                                                        repeats: NO];
   }
-  if ( [@"10 Minutes" isEqualToString :[repeater titleOfSelectedItem]] )
+  
+	if ( [@"10 Minutes" isEqualToString: [repeater titleOfSelectedItem]] )
   {
     checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 600
                                                         target: self
@@ -302,7 +327,8 @@
                                                       userInfo: nil
                                                        repeats: NO];
   }
-  if ( [@"15 Minutes" isEqualToString :[repeater titleOfSelectedItem]] )
+  
+	if ( [@"15 Minutes" isEqualToString: [repeater titleOfSelectedItem]] )
   {
     checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 900
                                                         target: self
@@ -310,7 +336,8 @@
                                                       userInfo: nil
                                                        repeats: NO];
   }
-  if ( [@"No!" isEqualToString :[repeater titleOfSelectedItem]] )
+  
+	if ( [@"No!" isEqualToString: [repeater titleOfSelectedItem]] )
   {
     checkApiKeyTimer = [NSTimer scheduledTimerWithTimeInterval: 600
                                                         target: self
@@ -350,7 +377,8 @@
   {
     connectedToInternet = YES;
   }
-  if ( connectedToInternet )
+  
+	if ( connectedToInternet )
   {
     NSLog(@"We Have Internet!");
   }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13CF46F41897304600B11FB5 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F31897304600B11FB5 /* WKUser.m */; };
+		13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F61897313C00B11FB5 /* WKStudyQueue.m */; };
+		13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F91897316000B11FB5 /* WKLevelProgression.m */; };
 		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
 		D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1367CB91673C8EF0062013A /* default-avatar.jpg */; };
@@ -22,7 +25,7 @@
 		D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D174ADE81673699900C82F90 /* preference-image@2x.png */; };
 		D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D174ADEE167369A600C82F90 /* review-time.mp3 */; };
 		D174ADF616736FDA00C82F90 /* WKAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADF516736FDA00C82F90 /* WKAppController.m */; };
-		D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
+		D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D174AE1A16737D0000C82F90 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0216737D0000C82F90 /* NSObject+SBJson.m */; };
 		D174AE1B16737D0000C82F90 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0516737D0000C82F90 /* SBJsonParser.m */; };
 		D174AE1C16737D0000C82F90 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0716737D0000C82F90 /* SBJsonStreamParser.m */; };
@@ -39,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13CF46F21897304600B11FB5 /* WKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUser.h; sourceTree = "<group>"; };
+		13CF46F31897304600B11FB5 /* WKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUser.m; sourceTree = "<group>"; };
+		13CF46F51897313C00B11FB5 /* WKStudyQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKStudyQueue.h; sourceTree = "<group>"; };
+		13CF46F61897313C00B11FB5 /* WKStudyQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKStudyQueue.m; sourceTree = "<group>"; };
+		13CF46F81897316000B11FB5 /* WKLevelProgression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKLevelProgression.h; sourceTree = "<group>"; };
+		13CF46F91897316000B11FB5 /* WKLevelProgression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKLevelProgression.m; sourceTree = "<group>"; };
+		13CF46FC189731E400B11FB5 /* WKApiDataContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKApiDataContainer.h; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
 		D1367CB11673C4C40062013A /* MGPreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPreferencePanel.h; sourceTree = "<group>"; };
@@ -106,6 +116,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13CF46F11897303200B11FB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13CF46F21897304600B11FB5 /* WKUser.h */,
+				13CF46F31897304600B11FB5 /* WKUser.m */,
+				13CF46F51897313C00B11FB5 /* WKStudyQueue.h */,
+				13CF46F61897313C00B11FB5 /* WKStudyQueue.m */,
+				13CF46F81897316000B11FB5 /* WKLevelProgression.h */,
+				13CF46F91897316000B11FB5 /* WKLevelProgression.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		13CF46FB189731C600B11FB5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				13CF46FC189731E400B11FB5 /* WKApiDataContainer.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		D1367CB01673C4C40062013A /* MGPreferencePanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +185,8 @@
 		D174ADC71673678C00C82F90 /* WaniKani Notifier */ = {
 			isa = PBXGroup;
 			children = (
+				13CF46FB189731C600B11FB5 /* Protocols */,
+				13CF46F11897303200B11FB5 /* Model */,
 				D174ADFB16737ABD00C82F90 /* Externals */,
 				D174ADF416736FDA00C82F90 /* WKAppController.h */,
 				D174ADF516736FDA00C82F90 /* WKAppController.m */,
@@ -330,17 +363,20 @@
 				D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */,
 				D174AE1A16737D0000C82F90 /* NSObject+SBJson.m in Sources */,
 				D174AE1B16737D0000C82F90 /* SBJsonParser.m in Sources */,
+				13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */,
 				D174AE1C16737D0000C82F90 /* SBJsonStreamParser.m in Sources */,
 				D174AE1D16737D0000C82F90 /* SBJsonStreamParserAccumulator.m in Sources */,
 				D174AE1E16737D0000C82F90 /* SBJsonStreamParserAdapter.m in Sources */,
 				D174AE1F16737D0000C82F90 /* SBJsonStreamParserState.m in Sources */,
 				D174AE2016737D0000C82F90 /* SBJsonStreamWriter.m in Sources */,
 				D174AE2116737D0000C82F90 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				13CF46F41897304600B11FB5 /* WKUser.m in Sources */,
 				D174AE2216737D0000C82F90 /* SBJsonStreamWriterState.m in Sources */,
 				D174AE2316737D0000C82F90 /* SBJsonTokeniser.m in Sources */,
 				D174AE2416737D0000C82F90 /* SBJsonUTF8Stream.m in Sources */,
 				D174AE2516737D0000C82F90 /* SBJsonWriter.m in Sources */,
 				D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */,
+				13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */,
 				D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */,
 				D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */,
 			);
