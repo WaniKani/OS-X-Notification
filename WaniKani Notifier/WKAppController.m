@@ -167,28 +167,6 @@
                                                    userInfo: nil
                                                     repeats: NO];
     }
-
-    NSImage* image = [[NSImage alloc] initWithData: [NSData dataWithContentsOfURL: self.api.user.gravatar]];
-    [userImage setImage: image];
-
-    [userName setStringValue: [NSString stringWithFormat: @"%@", self.api.user.username]];
-    [userSect setStringValue: [NSString stringWithFormat: @"Sect of %@", self.api.user.title]];
-    [userLevel setStringValue: [NSString stringWithFormat: @"%@", self.api.user.level]];
-
-    [userRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@",
-																			self.api.levelProgression.radicalsProgress,
-																			self.api.levelProgression.radicalsTotal]];
-
-    [userRadicalProgress setMaxValue: [self.api.levelProgression.radicalsTotal doubleValue]];
-    [userRadicalProgress setDoubleValue: [self.api.levelProgression.radicalsProgress doubleValue]];
-
-    [userKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@",
-																		self.api.levelProgression.kanjiProgress,
-																		self.api.levelProgression.kanjiTotal]];
-
-    [userKanjiProgress setMaxValue: [self.api.levelProgression.kanjiTotal doubleValue]];
-    [userKanjiProgress setDoubleValue: [self.api.levelProgression.kanjiProgress doubleValue]];
-    NSLog(@"Userpanel rendered");
   }
   else
   {
