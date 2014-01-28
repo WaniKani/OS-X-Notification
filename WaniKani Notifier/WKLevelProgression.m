@@ -17,4 +17,28 @@
   self.kanjiTotal = dictionary[@"kanji_total"];
 }
 
+- (NSString*)radicalsCompletionString
+{
+	return [NSString stringWithFormat: @"%@/%@",
+					self.radicalsProgress,
+					self.radicalsTotal];
+}
+
++ (NSSet*)keyPathsForValuesAffectingRadicalsCompletionString
+{
+	return [NSSet setWithObjects: @"radicalsProgress", @"radicalsTotal", nil];
+}
+
+- (NSString*)kanjiCompletionString
+{
+	return [NSString stringWithFormat: @"%@/%@",
+					self.kanjiProgress,
+					self.kanjiTotal];
+}
+
++ (NSSet*)keyPathsForValuesAffectingKanjiCompletionString
+{
+	return [NSSet setWithObjects: @"kanjiProgress", @"kanjiTotal", nil];
+}
+
 @end

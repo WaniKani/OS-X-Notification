@@ -12,7 +12,7 @@ static NSString* const kGravatarFormat = @"http://www.gravatar.com/avatar/%@?s=1
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WKUser ()
-- (NSURL*)gravatarUrlWithGravatarId: (NSString*)gravatId;
+- (NSString*)gravatarUrlStringWithGravatarId: (NSString*)gravatId;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,17 +20,36 @@ static NSString* const kGravatarFormat = @"http://www.gravatar.com/avatar/%@?s=1
 - (void)updateWithDictionary: (NSDictionary*)dictionary
 {
 	self.username = dictionary[@"username"];
-  self.gravatar = [self gravatarUrlWithGravatarId: dictionary[@"gravatar"]];
+  self.gravatarUrlString = [self gravatarUrlStringWithGravatarId: dictionary[@"gravatar"]];
   self.level = dictionary[@"level"];
   self.title = dictionary[@"title"];
   self.creationDate = dictionary[@"creation_date"];
 }
 
-#pragma mark - Private
-- (NSURL*)gravatarUrlWithGravatarId: (NSString*)gravatId
+- (NSURL*)gravatar
 {
-	NSString* urlString = [NSString stringWithFormat: kGravatarFormat, gravatId];
-	return [NSURL URLWithString: urlString];
+	return [NSURL URLWithString: self.gravatarUrlString];
+}
+
++ (NSSet*)keyPathsForValuesAffectingGravatar
+{
+	return [NSSet setWithObjects: @"gravatarUrlString", nil];
+}
+
+- (NSImage*)gravatarImage
+{
+	return [[NSImage alloc] initWithData: [NSData dataWithContentsOfURL: self.gravatar]];
+}
+
++ (NSSet*)keyPathsForValuesAffectingGravatarImage
+{
+	return [NSSet setWithObjects: @"gravatar", nil];
+}
+
+#pragma mark - Private
+- (NSString*)gravatarUrlStringWithGravatarId: (NSString*)gravatId
+{
+	return [NSString stringWithFormat: kGravatarFormat, gravatId];
 }
 
 @end

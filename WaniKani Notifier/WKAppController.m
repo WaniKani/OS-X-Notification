@@ -64,7 +64,7 @@
 {
   [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate: self];
 
-  api = [[WKApi alloc] init];
+  self.api = [[WKApi alloc] init];
 
   // Set up Statusbar Icon
   statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSVariableStatusItemLength];
@@ -125,10 +125,10 @@
 {
   if ( [[apiKeyTextfield stringValue] length] == 32 && [self hasInternet] )
   {
-    [api setApiKey: [apiKeyTextfield stringValue]];
-    [api updateAllData];
+    [self.api setApiKey: [apiKeyTextfield stringValue]];
+    [self.api updateAllData];
 
-    NSLog(@"API Key:%@/%@/%@", [apiKeyTextfield stringValue], api.apiKey, api.user.username);
+    NSLog(@"API Key:%@/%@/%@", [apiKeyTextfield stringValue], self.api.apiKey, self.api.user.username);
 
     NSDate* now = [NSDate date];
 
@@ -136,7 +136,7 @@
     [df_utc setTimeZone: [NSTimeZone timeZoneWithName: @"UTC"]];
     [df_utc setDateFormat: @"dd-MM-yyyy HH:mm:ss"];
 
-    NSString* utcNextReviewDate = [df_utc stringFromDate: api.studyQueue.nextReviewDate];
+    NSString* utcNextReviewDate = [df_utc stringFromDate: self.api.studyQueue.nextReviewDate];
     NSString* utcNow = [df_utc stringFromDate: now];
 
     NSLog(@"nextReview: %@, Now: %@", utcNextReviewDate, utcNow);
@@ -168,42 +168,27 @@
                                                     repeats: NO];
     }
 
-    NSImage* image = [[NSImage alloc] initWithData: [NSData dataWithContentsOfURL: api.user.gravatar]];
+    NSImage* image = [[NSImage alloc] initWithData: [NSData dataWithContentsOfURL: self.api.user.gravatar]];
     [userImage setImage: image];
 
-    [userName setStringValue: [NSString stringWithFormat: @"%@", api.user.username]];
-    [userSect setStringValue: [NSString stringWithFormat: @"Sect of %@", api.user.title]];
-    [userLevel setStringValue: [NSString stringWithFormat: @"%@", api.user.level]];
+    [userName setStringValue: [NSString stringWithFormat: @"%@", self.api.user.username]];
+    [userSect setStringValue: [NSString stringWithFormat: @"Sect of %@", self.api.user.title]];
+    [userLevel setStringValue: [NSString stringWithFormat: @"%@", self.api.user.level]];
 
     [userRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@",
-																			api.levelProgression.radicalsProgress,
-																			api.levelProgression.radicalsTotal]];
+																			self.api.levelProgression.radicalsProgress,
+																			self.api.levelProgression.radicalsTotal]];
 
-    [userRadicalProgress setMaxValue: [api.levelProgression.radicalsTotal doubleValue]];
-    [userRadicalProgress setDoubleValue: [api.levelProgression.radicalsProgress doubleValue]];
+    [userRadicalProgress setMaxValue: [self.api.levelProgression.radicalsTotal doubleValue]];
+    [userRadicalProgress setDoubleValue: [self.api.levelProgression.radicalsProgress doubleValue]];
 
     [userKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@",
-																		api.levelProgression.kanjiProgress,
-																		api.levelProgression.kanjiTotal]];
+																		self.api.levelProgression.kanjiProgress,
+																		self.api.levelProgression.kanjiTotal]];
 
-    [userKanjiProgress setMaxValue: [api.levelProgression.kanjiTotal doubleValue]];
-    [userKanjiProgress setDoubleValue: [api.levelProgression.kanjiProgress doubleValue]];
+    [userKanjiProgress setMaxValue: [self.api.levelProgression.kanjiTotal doubleValue]];
+    [userKanjiProgress setDoubleValue: [self.api.levelProgression.kanjiProgress doubleValue]];
     NSLog(@"Userpanel rendered");
-
-    // Profile Menu
-    // TODO: abstract these values into a UserData object and use KVO to set all of
-    //  these items
-    [profileMenuImage setImage: image];
-    [profileMenuName setStringValue: [NSString stringWithFormat: @"%@", api.user.username]];
-    [profileMenuSect setStringValue: [NSString stringWithFormat: @"Sect of %@", api.user.title]];
-    [profileMenuLevel setStringValue: [NSString stringWithFormat: @"Level %@", api.user.level]];
-    [profileMenuRadicalText setStringValue: [NSString stringWithFormat: @"%@/%@",
-																						 api.levelProgression.radicalsProgress,
-																						 api.levelProgression.radicalsTotal]];
-    [profileMenuKanjiText setStringValue: [NSString stringWithFormat: @"%@/%@",
-																					 api.levelProgression.kanjiProgress,
-																					 api.levelProgression.kanjiTotal]];
-    NSLog(@"Profile menu rendered");
   }
   else
   {
@@ -221,9 +206,9 @@
   if ( [[apiKeyTextfield stringValue] length] == 32 && [self hasInternet] )
   {
     [reviewsNextHourMenu setTitle: [NSString stringWithFormat: @"Reviews next Hour: %@",
-																		api.studyQueue.reviewsAvailableNextHour]];
+																		self.api.studyQueue.reviewsAvailableNextHour]];
     [reviewsNextDayMenu setTitle: [NSString stringWithFormat: @"Reviews next Day: %@",
-																	 api.studyQueue.reviewsAvailableNextDay]];
+																	 self.api.studyQueue.reviewsAvailableNextDay]];
     NSLog(@"Menu rendered");
 
     NSTimer* menuReviewTimer;
@@ -246,7 +231,7 @@
 
 - (void)setupNotification: (id)sender
 {
-  [api updateStudyQueue];
+  [self.api updateStudyQueue];
   notifcation = [WKNotifier alloc];
 
   if ( [@"1 Review" isEqualToString :[minReviews titleOfSelectedItem]] )
@@ -283,9 +268,9 @@
 
   if ( [@"No!" isEqualToString :[repeater titleOfSelectedItem]] )
   {
-    if ( lastReviewsAvailable == api.studyQueue.reviewsAvailable )
+    if ( lastReviewsAvailable == self.api.studyQueue.reviewsAvailable )
     {
-      [notifcation setReviewsAvailable: api.studyQueue.reviewsAvailable];
+      [notifcation setReviewsAvailable: self.api.studyQueue.reviewsAvailable];
       NSLog(@"ReviewsAvailable: %@", [notifcation reviewsAvailable]);
       [notifcation sendNotification];
       NSLog(@"Notifications send");
@@ -293,12 +278,12 @@
   }
   else
   {
-    [notifcation setReviewsAvailable: api.studyQueue.reviewsAvailable];
+    [notifcation setReviewsAvailable: self.api.studyQueue.reviewsAvailable];
     NSLog(@"ReviewsAvailable: %@", [notifcation reviewsAvailable]);
     [notifcation sendNotification];
     NSLog(@"Notifications send");
   }
-  lastReviewsAvailable = api.studyQueue.reviewsAvailable;
+  lastReviewsAvailable = self.api.studyQueue.reviewsAvailable;
 
   NSTimer* checkApiKeyTimer;
   if ( [@"1 Minute" isEqualToString: [repeater titleOfSelectedItem]] )

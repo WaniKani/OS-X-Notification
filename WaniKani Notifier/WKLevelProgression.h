@@ -10,8 +10,11 @@
 #import "WKApiDataContainer.h"
 
 @interface WKLevelProgression : NSObject <WKApiDataContainer>
-@property NSNumber*		radicalsProgress;
-@property NSNumber*		radicalsTotal;
-@property NSNumber*		kanjiProgress;
-@property NSNumber*		kanjiTotal;
+@property (nonatomic, strong) NSNumber*		radicalsProgress;
+@property (nonatomic, strong) NSNumber*		radicalsTotal;
+@property (nonatomic, readonly) NSString*	radicalsCompletionString;
+
+@property (nonatomic, strong) NSNumber*		kanjiProgress;
+@property (nonatomic, strong) NSNumber*		kanjiTotal;
+@property (nonatomic, readonly) NSString*	kanjiCompletionString;
 @end

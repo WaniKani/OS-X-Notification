@@ -50,9 +50,9 @@
 
   NSNumber* lastReviewsAvailable;
 
-  WKApi* api;
   WKNotifier* notifcation;
 }
+@property (nonatomic, strong) WKApi* api;
 
 - (IBAction)visitWaniKani: (id)sender;
 - (IBAction)showPreferences: (id)sender;

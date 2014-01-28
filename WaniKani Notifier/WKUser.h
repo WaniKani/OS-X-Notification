@@ -10,9 +10,11 @@
 #import "WKApiDataContainer.h"
 
 @interface WKUser : NSObject <WKApiDataContainer>
-@property NSString*		username;
-@property NSURL*			gravatar;
-@property NSString*		title;
-@property NSNumber*		level;
-@property NSString*		creationDate;
+@property (nonatomic, strong) NSString*		username;
+@property (nonatomic, strong) NSString*		gravatarUrlString;
+@property (nonatomic, readonly) NSURL*		gravatar;
+@property (nonatomic, readonly) NSImage*	gravatarImage;
+@property (nonatomic, strong) NSString*		title;
+@property (nonatomic, strong) NSNumber*		level;
+@property (nonatomic, strong) NSString*		creationDate;
 @end
