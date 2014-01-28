@@ -7,39 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SBJson.h"
 
-@class SBJsonStreamParser;
-@class SBJsonStreamParserAdapter;
+@class WKUser;
+@class WKStudyQueue;
+@class WKLevelProgression;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WKApi : NSObject {
-  NSURLConnection* theConnection;
-  SBJsonStreamParser* parser;
-  SBJsonStreamParserAdapter* adapter;
 }
 
 //Conection Info
 @property (strong) NSString* apiKey;
 
-//UserInfo
-@property NSString* username;
-@property NSURL* gravatar;
-@property NSString* title;
-@property NSNumber* level;
-@property NSString* creationDate;
-
-//StudyQueue
-@property NSNumber* lessonsAvailable;
-@property NSNumber* reviewsAvailable;
-@property NSString* nextReviewDate;
-@property NSNumber* reviewsAvailableNextHour;
-@property NSNumber* reviewsAvailableNextDay;
-
-//LevelProgression
-@property NSNumber* radicalsProgress;
-@property NSNumber* radicalsTotal;
-@property NSNumber* kanjiProgress;
-@property NSNumber* kanjiTotal;
+@property (nonatomic, strong) WKUser* user;
+@property (nonatomic, strong) WKStudyQueue* studyQueue;
+@property (nonatomic, strong) WKLevelProgression* levelProgression;
 
 - (void)updateAllData;
 - (void)updateUserInfo;

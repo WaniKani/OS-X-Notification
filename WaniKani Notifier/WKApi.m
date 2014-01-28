@@ -8,6 +8,14 @@
 
 #import "WKApi.h"
 
+// Models
+#import "WKUser.h"
+#import "WKStudyQueue.h"
+#import "WKLevelProgression.h"
+
+// Utility
+#import "SBJson.h"
+
 @interface WKApi ()
 - (NSURL*)apiUrlWithPath: (NSString*)path;
 @end
@@ -15,6 +23,20 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKApi
 
+- (id)init
+{
+	self = [super init];
+	if ( self )
+	{
+		self.user = [[WKUser alloc] init];
+		self.studyQueue = [[WKStudyQueue alloc] init];
+		self.levelProgression = [[WKLevelProgression alloc] init];
+	}
+	
+	return self;
+}
+
+#pragma mark -
 - (NSURL*)apiUrlWithPath: (NSString*)path
 {
   NSString* urlString = [NSString stringWithFormat: @"https://www.wanikani.com/api/user/%@/%@",
@@ -49,12 +71,7 @@
 
   NSDictionary* requestedInformation = [jsonObject objectForKey: @"user_information"];
 
-  _username = [requestedInformation objectForKey: @"username"];
-  NSString* gravatId = [requestedInformation objectForKey: @"gravatar"];
-  _gravatar = [NSURL URLWithString: [NSString stringWithFormat: @"http://www.gravatar.com/avatar/%@?s=180", gravatId]];
-  _level = [requestedInformation objectForKey: @"level"];
-  _title = [requestedInformation objectForKey: @"title"];
-  _creationDate = [requestedInformation objectForKey: @"creation_date"];
+	[self.user updateWithDictionary: requestedInformation];
 }
 
 - (void)updateStudyQueue
@@ -76,11 +93,7 @@
 
   NSDictionary* requestedInformation = [jsonObject objectForKey: @"requested_information"];
 
-  _lessonsAvailable = [requestedInformation objectForKey: @"lessons_available"];
-  _reviewsAvailable = [requestedInformation objectForKey: @"reviews_available"];
-  _nextReviewDate = [requestedInformation objectForKey: @"next_review_date"];
-  _reviewsAvailableNextHour = [requestedInformation objectForKey: @"reviews_available_next_hour"];
-  _reviewsAvailableNextDay = [requestedInformation objectForKey: @"reviews_available_next_day"];
+	[self.studyQueue updateWithDictionary: requestedInformation];
 }
 
 - (void)updateLevelProgression
@@ -102,10 +115,7 @@
 
   NSDictionary* requestedInformation = [jsonObject objectForKey: @"requested_information"];
 
-  _radicalsProgress = [requestedInformation objectForKey: @"radicals_progress"];
-  _radicalsTotal = [requestedInformation objectForKey: @"radicals_total"];
-  _kanjiProgress = [requestedInformation objectForKey: @"kanji_progress"];
-  _kanjiTotal = [requestedInformation objectForKey: @"kanji_total"];
+	[self.levelProgression updateWithDictionary: requestedInformation];
 }
 
 @end
