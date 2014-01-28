@@ -13,9 +13,6 @@
 #import "WKStudyQueue.h"
 #import "WKLevelProgression.h"
 
-// Utility
-#import "SBJson.h"
-
 @interface WKApi ()
 - (NSURL*)apiUrlWithPath: (NSString*)path;
 @end
@@ -55,67 +52,74 @@
 
 - (void)updateUserInfo
 {
-  NSURL* apiURL = [self apiUrlWithPath: @"user-information"];
-  NSURLRequest* request = [NSURLRequest requestWithURL: apiURL];
-  NSData* response = [NSURLConnection sendSynchronousRequest: request
-                                           returningResponse: nil
-                                                       error: nil];
-  NSString* jsonString = [[NSString alloc] initWithData: response
-                                               encoding: NSUTF8StringEncoding];
-
-  SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
-  NSError* error = nil;
-
-  id jsonObject = [jsonParser objectWithString: jsonString
-                                         error: &error];
-
-  NSDictionary* requestedInformation = [jsonObject objectForKey: @"user_information"];
-
-	[self.user updateWithDictionary: requestedInformation];
+  NSDictionary* userInformation = [self userInformationForPath: @"user-information"];
+	[self.user updateWithDictionary: userInformation];
 }
 
 - (void)updateStudyQueue
 {
-  NSURL* apiURL = [self apiUrlWithPath: @"study-queue"];
-
-  NSURLRequest* request = [NSURLRequest requestWithURL: apiURL];
-  NSData* response = [NSURLConnection sendSynchronousRequest: request
-                                           returningResponse: nil
-                                                       error: nil];
-  NSString* jsonString = [[NSString alloc] initWithData: response
-                                               encoding: NSUTF8StringEncoding];
-
-  SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
-  NSError* error = nil;
-
-  id jsonObject = [jsonParser objectWithString: jsonString
-                                         error: &error];
-
-  NSDictionary* requestedInformation = [jsonObject objectForKey: @"requested_information"];
-
+  NSDictionary* requestedInformation = [self requestedInformationForPath: @"study-queue"];
 	[self.studyQueue updateWithDictionary: requestedInformation];
 }
 
 - (void)updateLevelProgression
 {
-  NSURL* apiURL = [self apiUrlWithPath: @"level-progression"];
+  NSDictionary* requestedInformation = [self requestedInformationForPath: @"level-progression"];
+	[self.levelProgression updateWithDictionary: requestedInformation];
+}
 
+#pragma mark - Private
+- (NSDictionary*)userInformationForPath: (NSString*)path
+{
+	NSDictionary* requestedInformation = @{};
+	
+	id jsonObject = [self jsonObjectWithRequestForPath: path];
+	if ( [jsonObject respondsToSelector: @selector(objectForKey:)] )
+	{
+		requestedInformation = [jsonObject objectForKey: @"user_information"];
+	}
+	
+	return requestedInformation;
+}
+
+- (NSDictionary*)requestedInformationForPath: (NSString*)path
+{
+	NSDictionary* requestedInformation = @{};
+	
+	id jsonObject = [self jsonObjectWithRequestForPath: path];
+	if ( [jsonObject respondsToSelector: @selector(objectForKey:)] )
+	{
+		requestedInformation = [jsonObject objectForKey: @"requested_information"];
+	}
+	
+	return requestedInformation;
+}
+
+- (id)jsonObjectWithRequestForPath: (NSString*)path
+{
+	id jsonObject = nil;
+	
+	NSURL* apiURL = [self apiUrlWithPath: path];
   NSURLRequest* request = [NSURLRequest requestWithURL: apiURL];
-  NSData* response = [NSURLConnection sendSynchronousRequest: request
+	jsonObject = [self jsonObjectWithRequest: request];
+	
+	return jsonObject;
+}
+
+- (id)jsonObjectWithRequest: (NSURLRequest*)request
+{
+	id jsonObject = nil;
+	
+	NSData* response = [NSURLConnection sendSynchronousRequest: request
                                            returningResponse: nil
                                                        error: nil];
-  NSString* jsonString = [[NSString alloc] initWithData: response
-                                               encoding: NSUTF8StringEncoding];
-
-  SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
-  NSError* error = nil;
-
-  id jsonObject = [jsonParser objectWithString: jsonString
-                                         error: &error];
-
-  NSDictionary* requestedInformation = [jsonObject objectForKey: @"requested_information"];
-
-	[self.levelProgression updateWithDictionary: requestedInformation];
+	
+  NSError* jsonError = nil;
+	jsonObject = [NSJSONSerialization JSONObjectWithData: response
+																							 options: 0
+																								 error: &jsonError];
+	
+	return jsonObject;
 }
 
 @end
