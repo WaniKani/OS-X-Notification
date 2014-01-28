@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface WKNotifier : NSObject <NSUserNotificationCenterDelegate>
+@property (nonatomic, strong, readonly) NSUserNotificationCenter* userNotificationCenter;
+
 @property NSNumber* reviewsAvailable;
 @property NSNumber* minReviews;
 @property BOOL sound;

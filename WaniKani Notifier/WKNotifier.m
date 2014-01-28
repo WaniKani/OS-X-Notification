@@ -9,7 +9,7 @@
 #import "WKNotifier.h"
 
 @interface WKNotifier ()
-+ (NSUserNotificationCenter*)userNotificationCenter;
+@property (nonatomic, strong) NSUserNotificationCenter* userNotificationCenter;
 - (void)deliverNotification: (NSUserNotification*)notification;
 
 // Notification Builder
@@ -21,15 +21,20 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKNotifier
-
-+ (NSUserNotificationCenter*)userNotificationCenter
+- (id)init
 {
-  return [NSUserNotificationCenter defaultUserNotificationCenter];
+  self = [super init];
+  if ( self )
+  {
+    self.userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+  }
+
+  return self;
 }
 
 - (void)deliverNotification: (NSUserNotification*)notification
 {
-  [[[self class] userNotificationCenter] deliverNotification: notification];
+  [self.userNotificationCenter deliverNotification: notification];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,7 +55,7 @@
   notification.soundName = self.notificationSoundName;
   notification.hasActionButton = YES;
   notification.actionButtonTitle = NSLocalizedString(@"Open Review", @"NSUserNotification action button title");
-  [notification setOtherButtonTitle: NSLocalizedString(@"Be Lazy :(", @"NSUserNotification decline button title")];
+  notification.otherButtonTitle = NSLocalizedString(@"Be Lazy :(", @"NSUserNotification decline button title");
 
   return notification;
 }

@@ -210,7 +210,8 @@
 - (void)setupNotification: (id)sender
 {
   [self.api updateStudyQueue];
-  notifcation = [WKNotifier alloc];
+  notifcation = [[WKNotifier alloc] init];
+  notifcation.userNotificationCenter.delegate = self;
 
   if ( [@"1 Review" isEqualToString :[minReviews titleOfSelectedItem]] )
   {
