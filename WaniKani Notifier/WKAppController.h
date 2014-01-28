@@ -11,7 +11,8 @@
 #import "WKApi.h"
 #import "WKNotifier.h"
 
-@interface WKAppController : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>{
+@interface WKAppController : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
+{
   IBOutlet NSWindow* window;
 
   NSStatusItem* statusItem;
@@ -50,9 +51,9 @@
 
   NSNumber* lastReviewsAvailable;
 
-  WKApi* api;
   WKNotifier* notifcation;
 }
+@property (nonatomic, strong) WKApi* api;
 
 - (IBAction)visitWaniKani: (id)sender;
 - (IBAction)showPreferences: (id)sender;

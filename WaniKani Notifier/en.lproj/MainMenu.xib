@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
@@ -340,7 +340,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="583" height="390"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="583" height="390"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -497,6 +497,9 @@
                         <constraint firstAttribute="width" constant="94" id="1225"/>
                     </constraints>
                     <imageCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" image="default-avatar" id="768"/>
+                    <connections>
+                        <binding destination="676" name="value" keyPath="self.api.user.gravatarImage" id="1Sg-Y7-5UH"/>
+                    </connections>
                 </imageView>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="784">
                     <rect key="frame" x="174" y="157" width="79" height="17"/>
@@ -511,6 +514,10 @@
                     <rect key="frame" x="146" y="69" width="367" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <levelIndicatorCell key="cell" alignment="left" maxValue="1" warningValue="2" criticalValue="2" id="865"/>
+                    <connections>
+                        <binding destination="676" name="maxValue" keyPath="self.api.levelProgression.radicalsTotal" id="fFU-uz-N51"/>
+                        <binding destination="676" name="value" keyPath="self.api.levelProgression.radicalsProgress" previousBinding="fFU-uz-N51" id="eb9-Z5-Lge"/>
+                    </connections>
                 </levelIndicator>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="873">
                     <rect key="frame" x="144" y="95" width="169" height="17"/>
@@ -529,11 +536,18 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="value" keyPath="self.api.levelProgression.radicalsCompletionString" id="yra-on-822"/>
+                    </connections>
                 </textField>
                 <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1007" userLabel="Kanji Progress">
                     <rect key="frame" x="146" y="18" width="367" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <levelIndicatorCell key="cell" alignment="left" maxValue="1" warningValue="2" criticalValue="2" id="1014"/>
+                    <connections>
+                        <binding destination="676" name="maxValue" keyPath="self.api.levelProgression.kanjiTotal" id="cna-jP-q9G"/>
+                        <binding destination="676" name="value" keyPath="self.api.levelProgression.kanjiProgress" previousBinding="cna-jP-q9G" id="bQV-5O-eA5"/>
+                    </connections>
                 </levelIndicator>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1008">
                     <rect key="frame" x="144" y="44" width="155" height="17"/>
@@ -552,6 +566,9 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="value" keyPath="self.api.levelProgression.kanjiCompletionString" id="Jqh-3i-FqA"/>
+                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1136">
                     <rect key="frame" x="215" y="141" width="38" height="17"/>
@@ -600,6 +617,9 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="value" keyPath="self.api.user.username" id="inK-3c-rm0"/>
+                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1516" userLabel="Sect Label">
                     <rect key="frame" x="257" y="141" width="255" height="17"/>
@@ -612,6 +632,13 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="displayPatternValue1" keyPath="self.api.user.title" id="mAL-gG-Ql9">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">Sect of %{value1}@</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1533" userLabel="Level Label">
                     <rect key="frame" x="257" y="124" width="255" height="17"/>
@@ -621,6 +648,13 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="displayPatternValue1" keyPath="self.api.user.level" id="9xC-62-zkD">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">%{value1}@</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
             </subviews>
             <constraints>
@@ -678,7 +712,7 @@
                     </constraints>
                     <popUpButtonCell key="cell" type="push" title="1 Review" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="1347" id="1344">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="1345">
                             <items>
                                 <menuItem title="1 Review" state="on" id="1347">
@@ -712,7 +746,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="No!" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1662" id="1620">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="1621">
                             <items>
                                 <menuItem title="No!" state="on" id="1662">
@@ -742,7 +776,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Review Time!" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1652" id="1650">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="1651">
                             <items>
                                 <menuItem title="No!" id="1693">
@@ -784,6 +818,9 @@
                         <constraint firstAttribute="height" constant="64" id="xGG-ut-PwT"/>
                     </constraints>
                     <imageCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="photo" image="default-avatar" id="pNo-qd-aq8"/>
+                    <connections>
+                        <binding destination="676" name="value" keyPath="self.api.user.gravatarImage" id="va4-SU-yIi"/>
+                    </connections>
                 </imageView>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-hd-WCI">
                     <rect key="frame" x="78" y="8" width="63" height="17"/>
@@ -808,6 +845,13 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="displayPatternValue1" keyPath="self.api.levelProgression.radicalsCompletionString" id="gEO-2O-ilY">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">%{value1}@</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Op8-5I-Nah">
                     <rect key="frame" x="196" y="8" width="42" height="17"/>
@@ -832,6 +876,13 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="displayPatternValue1" keyPath="self.api.levelProgression.kanjiCompletionString" id="ZZJ-iP-lNt">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">%{value1}@</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ole-uu-yj4" userLabel="Username">
                     <rect key="frame" x="243" y="53" width="239" height="17"/>
@@ -856,6 +907,9 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="value" keyPath="self.api.user.username" id="GeV-rf-Lwy"/>
+                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zUk-I8-6p5" userLabel="Sect Label">
                     <rect key="frame" x="78" y="42" width="210" height="17"/>
@@ -868,6 +922,13 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="displayPatternValue1" keyPath="self.api.user.title" id="JBW-gW-NDD">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">Sect of %{value1}@</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="whL-Cn-sHI" userLabel="Sect Label">
                     <rect key="frame" x="78" y="25" width="210" height="17"/>
@@ -880,6 +941,13 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="676" name="displayPatternValue1" keyPath="self.api.user.level" id="Np9-0F-Xdd">
+                            <dictionary key="options">
+                                <string key="NSDisplayPattern">Level: %{value1}@</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </textField>
             </subviews>
             <constraints>

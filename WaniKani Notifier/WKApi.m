@@ -8,6 +8,11 @@
 
 #import "WKApi.h"
 
+// Models
+#import "WKUser.h"
+#import "WKStudyQueue.h"
+#import "WKLevelProgression.h"
+
 @interface WKApi ()
 - (NSURL*)apiUrlWithPath: (NSString*)path;
 @end
@@ -15,6 +20,20 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKApi
 
+- (id)init
+{
+	self = [super init];
+	if ( self )
+	{
+		self.user = [[WKUser alloc] init];
+		self.studyQueue = [[WKStudyQueue alloc] init];
+		self.levelProgression = [[WKLevelProgression alloc] init];
+	}
+	
+	return self;
+}
+
+#pragma mark -
 - (NSURL*)apiUrlWithPath: (NSString*)path
 {
   NSString* urlString = [NSString stringWithFormat: @"https://www.wanikani.com/api/user/%@/%@",
@@ -33,79 +52,74 @@
 
 - (void)updateUserInfo
 {
-  NSURL* apiURL = [self apiUrlWithPath: @"user-information"];
-  NSURLRequest* request = [NSURLRequest requestWithURL: apiURL];
-  NSData* response = [NSURLConnection sendSynchronousRequest: request
-                                           returningResponse: nil
-                                                       error: nil];
-  NSString* jsonString = [[NSString alloc] initWithData: response
-                                               encoding: NSUTF8StringEncoding];
-
-  SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
-  NSError* error = nil;
-
-  id jsonObject = [jsonParser objectWithString: jsonString
-                                         error: &error];
-
-  NSDictionary* requestedInformation = [jsonObject objectForKey: @"user_information"];
-
-  _username = [requestedInformation objectForKey: @"username"];
-  NSString* gravatId = [requestedInformation objectForKey: @"gravatar"];
-  _gravatar = [NSURL URLWithString: [NSString stringWithFormat: @"http://www.gravatar.com/avatar/%@?s=180", gravatId]];
-  _level = [requestedInformation objectForKey: @"level"];
-  _title = [requestedInformation objectForKey: @"title"];
-  _creationDate = [requestedInformation objectForKey: @"creation_date"];
+  NSDictionary* userInformation = [self userInformationForPath: @"user-information"];
+	[self.user updateWithDictionary: userInformation];
 }
 
 - (void)updateStudyQueue
 {
-  NSURL* apiURL = [self apiUrlWithPath: @"study-queue"];
-
-  NSURLRequest* request = [NSURLRequest requestWithURL: apiURL];
-  NSData* response = [NSURLConnection sendSynchronousRequest: request
-                                           returningResponse: nil
-                                                       error: nil];
-  NSString* jsonString = [[NSString alloc] initWithData: response
-                                               encoding: NSUTF8StringEncoding];
-
-  SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
-  NSError* error = nil;
-
-  id jsonObject = [jsonParser objectWithString: jsonString
-                                         error: &error];
-
-  NSDictionary* requestedInformation = [jsonObject objectForKey: @"requested_information"];
-
-  _lessonsAvailable = [requestedInformation objectForKey: @"lessons_available"];
-  _reviewsAvailable = [requestedInformation objectForKey: @"reviews_available"];
-  _nextReviewDate = [requestedInformation objectForKey: @"next_review_date"];
-  _reviewsAvailableNextHour = [requestedInformation objectForKey: @"reviews_available_next_hour"];
-  _reviewsAvailableNextDay = [requestedInformation objectForKey: @"reviews_available_next_day"];
+  NSDictionary* requestedInformation = [self requestedInformationForPath: @"study-queue"];
+	[self.studyQueue updateWithDictionary: requestedInformation];
 }
 
 - (void)updateLevelProgression
 {
-  NSURL* apiURL = [self apiUrlWithPath: @"level-progression"];
+  NSDictionary* requestedInformation = [self requestedInformationForPath: @"level-progression"];
+	[self.levelProgression updateWithDictionary: requestedInformation];
+}
 
+#pragma mark - Private
+- (NSDictionary*)userInformationForPath: (NSString*)path
+{
+	NSDictionary* requestedInformation = @{};
+	
+	id jsonObject = [self jsonObjectWithRequestForPath: path];
+	if ( [jsonObject respondsToSelector: @selector(objectForKey:)] )
+	{
+		requestedInformation = [jsonObject objectForKey: @"user_information"];
+	}
+	
+	return requestedInformation;
+}
+
+- (NSDictionary*)requestedInformationForPath: (NSString*)path
+{
+	NSDictionary* requestedInformation = @{};
+	
+	id jsonObject = [self jsonObjectWithRequestForPath: path];
+	if ( [jsonObject respondsToSelector: @selector(objectForKey:)] )
+	{
+		requestedInformation = [jsonObject objectForKey: @"requested_information"];
+	}
+	
+	return requestedInformation;
+}
+
+- (id)jsonObjectWithRequestForPath: (NSString*)path
+{
+	id jsonObject = nil;
+	
+	NSURL* apiURL = [self apiUrlWithPath: path];
   NSURLRequest* request = [NSURLRequest requestWithURL: apiURL];
-  NSData* response = [NSURLConnection sendSynchronousRequest: request
+	jsonObject = [self jsonObjectWithRequest: request];
+	
+	return jsonObject;
+}
+
+- (id)jsonObjectWithRequest: (NSURLRequest*)request
+{
+	id jsonObject = nil;
+	
+	NSData* response = [NSURLConnection sendSynchronousRequest: request
                                            returningResponse: nil
                                                        error: nil];
-  NSString* jsonString = [[NSString alloc] initWithData: response
-                                               encoding: NSUTF8StringEncoding];
-
-  SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
-  NSError* error = nil;
-
-  id jsonObject = [jsonParser objectWithString: jsonString
-                                         error: &error];
-
-  NSDictionary* requestedInformation = [jsonObject objectForKey: @"requested_information"];
-
-  _radicalsProgress = [requestedInformation objectForKey: @"radicals_progress"];
-  _radicalsTotal = [requestedInformation objectForKey: @"radicals_total"];
-  _kanjiProgress = [requestedInformation objectForKey: @"kanji_progress"];
-  _kanjiTotal = [requestedInformation objectForKey: @"kanji_total"];
+	
+  NSError* jsonError = nil;
+	jsonObject = [NSJSONSerialization JSONObjectWithData: response
+																							 options: 0
+																								 error: &jsonError];
+	
+	return jsonObject;
 }
 
 @end
