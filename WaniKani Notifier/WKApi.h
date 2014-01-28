@@ -13,9 +13,7 @@
 @class WKLevelProgression;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-@interface WKApi : NSObject {
-}
-
+@interface WKApi : NSObject
 //Conection Info
 @property (strong) NSString* apiKey;
 

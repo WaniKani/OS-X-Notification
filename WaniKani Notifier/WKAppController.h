@@ -11,7 +11,8 @@
 #import "WKApi.h"
 #import "WKNotifier.h"
 
-@interface WKAppController : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>{
+@interface WKAppController : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
+{
   IBOutlet NSWindow* window;
 
   NSStatusItem* statusItem;
