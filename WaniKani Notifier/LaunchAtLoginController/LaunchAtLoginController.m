@@ -105,11 +105,10 @@ void sharedFileListDidChange(LSSharedFileListRef inList, void* context)
     LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst,
                                   NULL, NULL, (CFURLRef)itemURL, NULL, NULL);
   }
-  else
-		if ( !enabled && appItem )
-		{
-			LSSharedFileListItemRemove(loginItems, appItem);
-		}
+  else if ( !enabled && appItem )
+	{
+		LSSharedFileListItemRemove(loginItems, appItem);
+	}
 }
 
 #pragma mark Basic Interface
