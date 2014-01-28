@@ -12,7 +12,7 @@
 @interface WKStudyQueue : NSObject <WKApiDataContainer>
 @property NSNumber*		lessonsAvailable;
 @property NSNumber*		reviewsAvailable;
-@property NSString*		nextReviewDate;
+@property NSDate*			nextReviewDate;
 @property NSNumber*		reviewsAvailableNextHour;
 @property NSNumber*		reviewsAvailableNextDay;
 @end

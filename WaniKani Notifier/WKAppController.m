@@ -130,17 +130,13 @@
 
     NSLog(@"API Key:%@/%@/%@", [apiKeyTextfield stringValue], api.apiKey, api.user.username);
 
-    NSString* nextReviewDateString = api.studyQueue.nextReviewDate;
-    NSTimeInterval nextReviewInterval = [nextReviewDateString doubleValue];
-    NSDate* nextReviewDate = [NSDate dateWithTimeIntervalSince1970: nextReviewInterval];
-
     NSDate* now = [NSDate date];
 
     NSDateFormatter* df_utc = [[NSDateFormatter alloc] init];
     [df_utc setTimeZone: [NSTimeZone timeZoneWithName: @"UTC"]];
     [df_utc setDateFormat: @"dd-MM-yyyy HH:mm:ss"];
 
-    NSString* utcNextReviewDate = [df_utc stringFromDate: nextReviewDate];
+    NSString* utcNextReviewDate = [df_utc stringFromDate: api.studyQueue.nextReviewDate];
     NSString* utcNow = [df_utc stringFromDate: now];
 
     NSLog(@"nextReview: %@, Now: %@", utcNextReviewDate, utcNow);
