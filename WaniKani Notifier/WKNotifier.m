@@ -9,24 +9,24 @@
 #import "WKNotifier.h"
 
 @interface WKNotifier ()
-@property (nonatomic, strong) NSUserNotificationCenter* userNotificationCenter;
 - (void)deliverNotification: (NSUserNotification*)notification;
 
 // Notification Builder
-@property (nonatomic, readonly) NSUserNotification* notification;
+- (NSUserNotification*)buildNotification;
 @property (nonatomic, readonly) NSString* notificationText;
 @property (nonatomic, readonly) NSString* notificationSoundName;
-
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKNotifier
+@synthesize userNotificationCenter = _userNotificationCenter;
+
 - (id)init
 {
   self = [super init];
   if ( self )
   {
-    self.userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+    _userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
   }
 
   return self;
@@ -37,17 +37,26 @@
   [self.userNotificationCenter deliverNotification: notification];
 }
 
+- (void)removeDeliveredNotifications
+{
+  [self.userNotificationCenter removeAllDeliveredNotifications];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)sendNotification
 {
   if ( [_reviewsAvailable intValue] >= [[self minReviews] intValue] )
   {
-    [self deliverNotification: self.notification];
+    // Make sure that we remove the notifications that were showing
+    [self removeDeliveredNotifications];
+
+    NSUserNotification* notification = [self buildNotification];
+    [self deliverNotification: notification];
   }
 }
 
 #pragma mark - Notification Building
-- (NSUserNotification*)notification
+- (NSUserNotification*)buildNotification
 {
   NSUserNotification* notification = [[NSUserNotification alloc] init];
   notification.title = NSLocalizedString(@"Review Available!", @"NSUserNotification title");

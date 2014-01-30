@@ -18,11 +18,12 @@
 @interface WKAppController ()
 @property (nonatomic, readonly) NSUserDefaults* userDefaults;
 @property (nonatomic, readonly) NSURL* waniKaniUrl;
+@property (nonatomic, readonly) WKNotifier* notifier;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKAppController
-
+@synthesize notifier=_notifier;
 #define kApiKey @"apiKey"
 #define kMinReviews @"minReviews"
 #define kRepeater @"repeater"
@@ -207,41 +208,50 @@
   }
 }
 
+- (WKNotifier*)notifier
+{
+  if ( _notifier == nil )
+  {
+    _notifier = [[WKNotifier alloc] init];
+    _notifier.userNotificationCenter.delegate = self;
+  }
+
+  return _notifier;
+}
+
 - (void)setupNotification: (id)sender
 {
   [self.api updateStudyQueue];
-  notifcation = [[WKNotifier alloc] init];
-  notifcation.userNotificationCenter.delegate = self;
 
   if ( [@"1 Review" isEqualToString :[minReviews titleOfSelectedItem]] )
   {
-    [notifcation setMinReviews: [NSNumber numberWithDouble: 1]];
+    [self.notifier setMinReviews: [NSNumber numberWithDouble: 1]];
   }
   if ( [@"5 Reviews" isEqualToString :[minReviews titleOfSelectedItem]] )
   {
-    [notifcation setMinReviews: [NSNumber numberWithDouble: 5]];
+    [self.notifier setMinReviews: [NSNumber numberWithDouble: 5]];
   }
   if ( [@"15 Reviews" isEqualToString :[minReviews titleOfSelectedItem]] )
   {
-    [notifcation setMinReviews: [NSNumber numberWithDouble: 15]];
+    [self.notifier setMinReviews: [NSNumber numberWithDouble: 15]];
   }
   if ( [@"25 Reviews" isEqualToString :[minReviews titleOfSelectedItem]] )
   {
-    [notifcation setMinReviews: [NSNumber numberWithDouble: 25]];
+    [self.notifier setMinReviews: [NSNumber numberWithDouble: 25]];
   }
   if ( [@"42 Reviews" isEqualToString :[minReviews titleOfSelectedItem]] )
   {
-    [notifcation setMinReviews: [NSNumber numberWithDouble: 42]];
+    [self.notifier setMinReviews: [NSNumber numberWithDouble: 42]];
   }
 
   if ( [@"No!" isEqualToString :[sound titleOfSelectedItem]] )
   {
-    [notifcation setSound: NO];
+    [self.notifier setSound: NO];
     NSLog(@"Set Sound to NO");
   }
   else
   {
-    [notifcation setSound: YES];
+    [self.notifier setSound: YES];
     NSLog(@"Set Sound to YES");
   }
 
@@ -249,17 +259,17 @@
   {
     if ( lastReviewsAvailable == self.api.studyQueue.reviewsAvailable )
     {
-      [notifcation setReviewsAvailable: self.api.studyQueue.reviewsAvailable];
-      NSLog(@"ReviewsAvailable: %@", [notifcation reviewsAvailable]);
-      [notifcation sendNotification];
+      [self.notifier setReviewsAvailable: self.api.studyQueue.reviewsAvailable];
+      NSLog(@"ReviewsAvailable: %@", [self.notifier reviewsAvailable]);
+      [self.notifier sendNotification];
       NSLog(@"Notifications send");
     }
   }
   else
   {
-    [notifcation setReviewsAvailable: self.api.studyQueue.reviewsAvailable];
-    NSLog(@"ReviewsAvailable: %@", [notifcation reviewsAvailable]);
-    [notifcation sendNotification];
+    [self.notifier setReviewsAvailable: self.api.studyQueue.reviewsAvailable];
+    NSLog(@"ReviewsAvailable: %@", [self.notifier reviewsAvailable]);
+    [self.notifier sendNotification];
     NSLog(@"Notifications send");
   }
   lastReviewsAvailable = self.api.studyQueue.reviewsAvailable;
