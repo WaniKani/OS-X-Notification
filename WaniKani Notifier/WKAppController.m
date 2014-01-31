@@ -14,6 +14,9 @@
 #import "WKStudyQueue.h"
 #import "WKLevelProgression.h"
 
+static NSString* const ReviewsAvailableKeyPath = @"api.studyQueue.reviewsAvailable";
+static void* ReviewsAvailableContext = &ReviewsAvailableContext;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WKAppController ()
 @property (nonatomic, readonly) NSUserDefaults* userDefaults;
@@ -30,6 +33,29 @@
 #define kSound @"sound"
 #define kFirstLaunch @"FirstLaunch"
 
+- (id)init
+{
+  self = [super init];
+
+  if ( self )
+  {
+    [self addObserver: self
+           forKeyPath: ReviewsAvailableKeyPath
+              options: 0
+              context: ReviewsAvailableContext];
+  }
+
+  return self;
+}
+
+- (void)dealloc
+{
+  [self removeObserver: self
+            forKeyPath: ReviewsAvailableKeyPath
+               context: ReviewsAvailableContext];
+}
+
+#pragma mark -
 - (NSUserDefaults*)userDefaults
 {
 	return [NSUserDefaults standardUserDefaults];
@@ -110,6 +136,7 @@
                                                     repeats: NO];
 }
 
+#pragma mark - NSUserNotificationCenterDelegate
 - (BOOL)userNotificationCenter: (NSUserNotificationCenter*)center
      shouldPresentNotification: (NSUserNotification*)notification
 {
@@ -122,6 +149,7 @@
   [[NSWorkspace sharedWorkspace] openURL: [NSURL URLWithString: @"https://www.wanikani.com/review/"]];
 }
 
+#pragma mark - Timers
 - (void)intervalTimer: (id)sender;
 {
   if ( [[apiKeyTextfield stringValue] length] == 32 && [self hasInternet] )
@@ -363,6 +391,32 @@
 - (void)applicationWillTerminate: (NSNotification*)aNotification
 {
   [self saveKeys];
+}
+
+#pragma mark - KVO
+- (void)observeValueForKeyPath: (NSString*)keyPath
+                      ofObject: (id)object
+                        change: (NSDictionary*)change
+                       context: (void*)context
+{
+  if ( context == ReviewsAvailableContext )
+  {
+    if ( self.api.studyQueue.reviewsAvailable.integerValue > 0 )
+    {
+      [statusItem setImage: [NSImage imageNamed: @"menubar-active.png"]];
+    }
+    else
+    {
+      [statusItem setImage: [NSImage imageNamed: @"menubar.png"]];
+    }
+  }
+  else
+  {
+    [super observeValueForKeyPath: keyPath
+                         ofObject: object
+                           change: change
+                          context: context];
+  }
 }
 
 @end

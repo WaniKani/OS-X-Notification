@@ -10,6 +10,7 @@
 		13CF46F41897304600B11FB5 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F31897304600B11FB5 /* WKUser.m */; };
 		13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F61897313C00B11FB5 /* WKStudyQueue.m */; };
 		13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F91897316000B11FB5 /* WKLevelProgression.m */; };
+		B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B04F497E189C587B009C7DC4 /* menubar-active.png */; };
 		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
 		D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1367CB91673C8EF0062013A /* default-avatar.jpg */; };
@@ -37,6 +38,7 @@
 		13CF46F81897316000B11FB5 /* WKLevelProgression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKLevelProgression.h; sourceTree = "<group>"; };
 		13CF46F91897316000B11FB5 /* WKLevelProgression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKLevelProgression.m; sourceTree = "<group>"; };
 		13CF46FC189731E400B11FB5 /* WKApiDataContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKApiDataContainer.h; sourceTree = "<group>"; };
+		B04F497E189C587B009C7DC4 /* menubar-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-active.png"; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
 		D1367CB11673C4C40062013A /* MGPreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPreferencePanel.h; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				D1367CB91673C8EF0062013A /* default-avatar.jpg */,
 				D174ADE51673699900C82F90 /* menubar-invert.png */,
 				D174ADE61673699900C82F90 /* menubar.png */,
+				B04F497E189C587B009C7DC4 /* menubar-active.png */,
 				D174ADE71673699900C82F90 /* preference-image.png */,
 				D174ADE81673699900C82F90 /* preference-image@2x.png */,
 			);
@@ -283,6 +286,7 @@
 				D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */,
 				D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */,
 				D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */,
+				B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
