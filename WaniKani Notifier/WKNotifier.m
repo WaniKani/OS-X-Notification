@@ -9,27 +9,37 @@
 #import "WKNotifier.h"
 
 @interface WKNotifier ()
-+ (NSUserNotificationCenter*)userNotificationCenter;
 - (void)deliverNotification: (NSUserNotification*)notification;
 
 // Notification Builder
-@property (nonatomic, readonly) NSUserNotification* notification;
+- (NSUserNotification*)buildNotification;
 @property (nonatomic, readonly) NSString* notificationText;
 @property (nonatomic, readonly) NSString* notificationSoundName;
-
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKNotifier
+@synthesize userNotificationCenter = _userNotificationCenter;
 
-+ (NSUserNotificationCenter*)userNotificationCenter
+- (id)init
 {
-  return [NSUserNotificationCenter defaultUserNotificationCenter];
+  self = [super init];
+  if ( self )
+  {
+    _userNotificationCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+  }
+
+  return self;
 }
 
 - (void)deliverNotification: (NSUserNotification*)notification
 {
-  [[[self class] userNotificationCenter] deliverNotification: notification];
+  [self.userNotificationCenter deliverNotification: notification];
+}
+
+- (void)removeDeliveredNotifications
+{
+  [self.userNotificationCenter removeAllDeliveredNotifications];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,12 +47,16 @@
 {
   if ( [_reviewsAvailable intValue] >= [[self minReviews] intValue] )
   {
-    [self deliverNotification: self.notification];
+    // Make sure that we remove the notifications that were showing
+    [self removeDeliveredNotifications];
+
+    NSUserNotification* notification = [self buildNotification];
+    [self deliverNotification: notification];
   }
 }
 
 #pragma mark - Notification Building
-- (NSUserNotification*)notification
+- (NSUserNotification*)buildNotification
 {
   NSUserNotification* notification = [[NSUserNotification alloc] init];
   notification.title = NSLocalizedString(@"Review Available!", @"NSUserNotification title");
@@ -50,7 +64,7 @@
   notification.soundName = self.notificationSoundName;
   notification.hasActionButton = YES;
   notification.actionButtonTitle = NSLocalizedString(@"Open Review", @"NSUserNotification action button title");
-  [notification setOtherButtonTitle: NSLocalizedString(@"Be Lazy :(", @"NSUserNotification decline button title")];
+  notification.otherButtonTitle = NSLocalizedString(@"Be Lazy :(", @"NSUserNotification decline button title");
 
   return notification;
 }

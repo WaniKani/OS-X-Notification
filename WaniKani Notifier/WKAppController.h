@@ -50,8 +50,6 @@
   IBOutlet NSLevelIndicator* userKanjiProgress;
 
   NSNumber* lastReviewsAvailable;
-
-  WKNotifier* notifcation;
 }
 @property (nonatomic, strong) WKApi* api;
 

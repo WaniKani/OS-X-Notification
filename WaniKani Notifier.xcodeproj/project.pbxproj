@@ -245,6 +245,11 @@
 				CLASSPREFIX = WK;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Sebastian Szturo";
+				TargetAttributes = {
+					D174ADBC1673678B00C82F90 = {
+						DevelopmentTeam = E2QSAP36RX;
+					};
+				};
 			};
 			buildConfigurationList = D174ADB71673678B00C82F90 /* Build configuration list for PBXProject "WaniKani Notifier" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -376,11 +381,13 @@
 		D174ADDC1673678C00C82F90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaniKani Notifier/WaniKani Notifier-Prefix.pch";
 				INFOPLIST_FILE = "WaniKani Notifier/WaniKani Notifier-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -388,11 +395,13 @@
 		D174ADDD1673678C00C82F90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaniKani Notifier/WaniKani Notifier-Prefix.pch";
 				INFOPLIST_FILE = "WaniKani Notifier/WaniKani Notifier-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
