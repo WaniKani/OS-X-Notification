@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13CF46F41897304600B11FB5 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F31897304600B11FB5 /* WKUser.m */; };
+		13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F61897313C00B11FB5 /* WKStudyQueue.m */; };
+		13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F91897316000B11FB5 /* WKLevelProgression.m */; };
 		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
 		D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1367CB91673C8EF0062013A /* default-avatar.jpg */; };
@@ -22,23 +25,18 @@
 		D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D174ADE81673699900C82F90 /* preference-image@2x.png */; };
 		D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D174ADEE167369A600C82F90 /* review-time.mp3 */; };
 		D174ADF616736FDA00C82F90 /* WKAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADF516736FDA00C82F90 /* WKAppController.m */; };
-		D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = " -fno-objc-arc"; }; };
-		D174AE1A16737D0000C82F90 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0216737D0000C82F90 /* NSObject+SBJson.m */; };
-		D174AE1B16737D0000C82F90 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0516737D0000C82F90 /* SBJsonParser.m */; };
-		D174AE1C16737D0000C82F90 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0716737D0000C82F90 /* SBJsonStreamParser.m */; };
-		D174AE1D16737D0000C82F90 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0916737D0000C82F90 /* SBJsonStreamParserAccumulator.m */; };
-		D174AE1E16737D0000C82F90 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0B16737D0000C82F90 /* SBJsonStreamParserAdapter.m */; };
-		D174AE1F16737D0000C82F90 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0D16737D0000C82F90 /* SBJsonStreamParserState.m */; };
-		D174AE2016737D0000C82F90 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE0F16737D0000C82F90 /* SBJsonStreamWriter.m */; };
-		D174AE2116737D0000C82F90 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE1116737D0000C82F90 /* SBJsonStreamWriterAccumulator.m */; };
-		D174AE2216737D0000C82F90 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE1316737D0000C82F90 /* SBJsonStreamWriterState.m */; };
-		D174AE2316737D0000C82F90 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE1516737D0000C82F90 /* SBJsonTokeniser.m */; };
-		D174AE2416737D0000C82F90 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE1716737D0000C82F90 /* SBJsonUTF8Stream.m */; };
-		D174AE2516737D0000C82F90 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE1916737D0000C82F90 /* SBJsonWriter.m */; };
+		D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE2716737D1800C82F90 /* WKNotifier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13CF46F21897304600B11FB5 /* WKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKUser.h; sourceTree = "<group>"; };
+		13CF46F31897304600B11FB5 /* WKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKUser.m; sourceTree = "<group>"; };
+		13CF46F51897313C00B11FB5 /* WKStudyQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKStudyQueue.h; sourceTree = "<group>"; };
+		13CF46F61897313C00B11FB5 /* WKStudyQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKStudyQueue.m; sourceTree = "<group>"; };
+		13CF46F81897316000B11FB5 /* WKLevelProgression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKLevelProgression.h; sourceTree = "<group>"; };
+		13CF46F91897316000B11FB5 /* WKLevelProgression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKLevelProgression.m; sourceTree = "<group>"; };
+		13CF46FC189731E400B11FB5 /* WKApiDataContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKApiDataContainer.h; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
 		D1367CB11673C4C40062013A /* MGPreferencePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPreferencePanel.h; sourceTree = "<group>"; };
@@ -65,31 +63,6 @@
 		D174ADF516736FDA00C82F90 /* WKAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKAppController.m; sourceTree = "<group>"; };
 		D174ADFD16737C5200C82F90 /* LaunchAtLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAtLoginController.h; sourceTree = "<group>"; };
 		D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
-		D174AE0116737D0000C82F90 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
-		D174AE0216737D0000C82F90 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
-		D174AE0316737D0000C82F90 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
-		D174AE0416737D0000C82F90 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		D174AE0516737D0000C82F90 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		D174AE0616737D0000C82F90 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
-		D174AE0716737D0000C82F90 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
-		D174AE0816737D0000C82F90 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
-		D174AE0916737D0000C82F90 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
-		D174AE0A16737D0000C82F90 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
-		D174AE0B16737D0000C82F90 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
-		D174AE0C16737D0000C82F90 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
-		D174AE0D16737D0000C82F90 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
-		D174AE0E16737D0000C82F90 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
-		D174AE0F16737D0000C82F90 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
-		D174AE1016737D0000C82F90 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
-		D174AE1116737D0000C82F90 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
-		D174AE1216737D0000C82F90 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
-		D174AE1316737D0000C82F90 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
-		D174AE1416737D0000C82F90 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
-		D174AE1516737D0000C82F90 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
-		D174AE1616737D0000C82F90 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
-		D174AE1716737D0000C82F90 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
-		D174AE1816737D0000C82F90 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		D174AE1916737D0000C82F90 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		D174AE2616737D1800C82F90 /* WKNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKNotifier.h; sourceTree = "<group>"; };
 		D174AE2716737D1800C82F90 /* WKNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKNotifier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +79,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13CF46F11897303200B11FB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13CF46F21897304600B11FB5 /* WKUser.h */,
+				13CF46F31897304600B11FB5 /* WKUser.m */,
+				13CF46F51897313C00B11FB5 /* WKStudyQueue.h */,
+				13CF46F61897313C00B11FB5 /* WKStudyQueue.m */,
+				13CF46F81897316000B11FB5 /* WKLevelProgression.h */,
+				13CF46F91897316000B11FB5 /* WKLevelProgression.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		13CF46FB189731C600B11FB5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				13CF46FC189731E400B11FB5 /* WKApiDataContainer.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		D1367CB01673C4C40062013A /* MGPreferencePanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,9 +148,11 @@
 		D174ADC71673678C00C82F90 /* WaniKani Notifier */ = {
 			isa = PBXGroup;
 			children = (
-				D174ADFB16737ABD00C82F90 /* Externals */,
 				D174ADF416736FDA00C82F90 /* WKAppController.h */,
 				D174ADF516736FDA00C82F90 /* WKAppController.m */,
+				13CF46FB189731C600B11FB5 /* Protocols */,
+				13CF46F11897303200B11FB5 /* Model */,
+				D174ADFB16737ABD00C82F90 /* Externals */,
 				D174AE2616737D1800C82F90 /* WKNotifier.h */,
 				D174AE2716737D1800C82F90 /* WKNotifier.m */,
 				D11F59D91673D3C10097B5C8 /* WKApi.h */,
@@ -206,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				D1367CB01673C4C40062013A /* MGPreferencePanel */,
-				D174AE0016737D0000C82F90 /* SBJson */,
 				D174ADFC16737C5200C82F90 /* LaunchAtLoginController */,
 			);
 			name = Externals;
@@ -219,38 +214,6 @@
 				D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */,
 			);
 			path = LaunchAtLoginController;
-			sourceTree = "<group>";
-		};
-		D174AE0016737D0000C82F90 /* SBJson */ = {
-			isa = PBXGroup;
-			children = (
-				D174AE0116737D0000C82F90 /* NSObject+SBJson.h */,
-				D174AE0216737D0000C82F90 /* NSObject+SBJson.m */,
-				D174AE0316737D0000C82F90 /* SBJson.h */,
-				D174AE0416737D0000C82F90 /* SBJsonParser.h */,
-				D174AE0516737D0000C82F90 /* SBJsonParser.m */,
-				D174AE0616737D0000C82F90 /* SBJsonStreamParser.h */,
-				D174AE0716737D0000C82F90 /* SBJsonStreamParser.m */,
-				D174AE0816737D0000C82F90 /* SBJsonStreamParserAccumulator.h */,
-				D174AE0916737D0000C82F90 /* SBJsonStreamParserAccumulator.m */,
-				D174AE0A16737D0000C82F90 /* SBJsonStreamParserAdapter.h */,
-				D174AE0B16737D0000C82F90 /* SBJsonStreamParserAdapter.m */,
-				D174AE0C16737D0000C82F90 /* SBJsonStreamParserState.h */,
-				D174AE0D16737D0000C82F90 /* SBJsonStreamParserState.m */,
-				D174AE0E16737D0000C82F90 /* SBJsonStreamWriter.h */,
-				D174AE0F16737D0000C82F90 /* SBJsonStreamWriter.m */,
-				D174AE1016737D0000C82F90 /* SBJsonStreamWriterAccumulator.h */,
-				D174AE1116737D0000C82F90 /* SBJsonStreamWriterAccumulator.m */,
-				D174AE1216737D0000C82F90 /* SBJsonStreamWriterState.h */,
-				D174AE1316737D0000C82F90 /* SBJsonStreamWriterState.m */,
-				D174AE1416737D0000C82F90 /* SBJsonTokeniser.h */,
-				D174AE1516737D0000C82F90 /* SBJsonTokeniser.m */,
-				D174AE1616737D0000C82F90 /* SBJsonUTF8Stream.h */,
-				D174AE1716737D0000C82F90 /* SBJsonUTF8Stream.m */,
-				D174AE1816737D0000C82F90 /* SBJsonWriter.h */,
-				D174AE1916737D0000C82F90 /* SBJsonWriter.m */,
-			);
-			path = SBJson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,8 +243,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WK;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Sebastian Szturo";
+				TargetAttributes = {
+					D174ADBC1673678B00C82F90 = {
+						DevelopmentTeam = E2QSAP36RX;
+					};
+				};
 			};
 			buildConfigurationList = D174ADB71673678B00C82F90 /* Build configuration list for PBXProject "WaniKani Notifier" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -328,19 +296,10 @@
 				D174ADCE1673678C00C82F90 /* main.m in Sources */,
 				D174ADF616736FDA00C82F90 /* WKAppController.m in Sources */,
 				D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */,
-				D174AE1A16737D0000C82F90 /* NSObject+SBJson.m in Sources */,
-				D174AE1B16737D0000C82F90 /* SBJsonParser.m in Sources */,
-				D174AE1C16737D0000C82F90 /* SBJsonStreamParser.m in Sources */,
-				D174AE1D16737D0000C82F90 /* SBJsonStreamParserAccumulator.m in Sources */,
-				D174AE1E16737D0000C82F90 /* SBJsonStreamParserAdapter.m in Sources */,
-				D174AE1F16737D0000C82F90 /* SBJsonStreamParserState.m in Sources */,
-				D174AE2016737D0000C82F90 /* SBJsonStreamWriter.m in Sources */,
-				D174AE2116737D0000C82F90 /* SBJsonStreamWriterAccumulator.m in Sources */,
-				D174AE2216737D0000C82F90 /* SBJsonStreamWriterState.m in Sources */,
-				D174AE2316737D0000C82F90 /* SBJsonTokeniser.m in Sources */,
-				D174AE2416737D0000C82F90 /* SBJsonUTF8Stream.m in Sources */,
-				D174AE2516737D0000C82F90 /* SBJsonWriter.m in Sources */,
+				13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */,
+				13CF46F41897304600B11FB5 /* WKUser.m in Sources */,
 				D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */,
+				13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */,
 				D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */,
 				D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */,
 			);
@@ -372,7 +331,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -402,7 +360,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -424,11 +381,13 @@
 		D174ADDC1673678C00C82F90 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaniKani Notifier/WaniKani Notifier-Prefix.pch";
 				INFOPLIST_FILE = "WaniKani Notifier/WaniKani Notifier-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -436,11 +395,13 @@
 		D174ADDD1673678C00C82F90 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WaniKani Notifier/WaniKani Notifier-Prefix.pch";
 				INFOPLIST_FILE = "WaniKani Notifier/WaniKani Notifier-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
