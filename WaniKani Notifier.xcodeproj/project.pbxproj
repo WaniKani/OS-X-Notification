@@ -22,6 +22,9 @@
 		13CF4716189CC39700B11FB5 /* enlighten-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4711189CC39700B11FB5 /* enlighten-small.png */; };
 		13CF4717189CC39700B11FB5 /* guru-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4712189CC39700B11FB5 /* guru-small.png */; };
 		13CF4718189CC39700B11FB5 /* master-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4713189CC39700B11FB5 /* master-small.png */; };
+		13CF4720189D580300B11FB5 /* AXStatusItemPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF471F189D580300B11FB5 /* AXStatusItemPopup.m */; };
+		13CF4724189D99D500B11FB5 /* WKStatusMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF4722189D99D500B11FB5 /* WKStatusMenuViewController.m */; };
+		13CF4725189D99D500B11FB5 /* WKStatusMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4723189D99D500B11FB5 /* WKStatusMenuViewController.xib */; };
 		B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B04F497E189C587B009C7DC4 /* menubar-active.png */; };
 		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
@@ -66,6 +69,11 @@
 		13CF4712189CC39700B11FB5 /* guru-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guru-small.png"; sourceTree = "<group>"; };
 		13CF4713189CC39700B11FB5 /* master-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "master-small.png"; sourceTree = "<group>"; };
 		13CF4719189D4AE000B11FB5 /* WKColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKColors.h; sourceTree = "<group>"; };
+		13CF471E189D580300B11FB5 /* AXStatusItemPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AXStatusItemPopup.h; path = AXStatusItemPopup/AXStatusItemPopup.h; sourceTree = "<group>"; };
+		13CF471F189D580300B11FB5 /* AXStatusItemPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AXStatusItemPopup.m; path = AXStatusItemPopup/AXStatusItemPopup.m; sourceTree = "<group>"; };
+		13CF4721189D99D500B11FB5 /* WKStatusMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKStatusMenuViewController.h; sourceTree = "<group>"; };
+		13CF4722189D99D500B11FB5 /* WKStatusMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKStatusMenuViewController.m; sourceTree = "<group>"; };
+		13CF4723189D99D500B11FB5 /* WKStatusMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKStatusMenuViewController.xib; sourceTree = "<group>"; };
 		B04F497E189C587B009C7DC4 /* menubar-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-active.png"; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
@@ -134,6 +142,25 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		13CF471D189D57D400B11FB5 /* AXStatusItemPopup */ = {
+			isa = PBXGroup;
+			children = (
+				13CF471E189D580300B11FB5 /* AXStatusItemPopup.h */,
+				13CF471F189D580300B11FB5 /* AXStatusItemPopup.m */,
+			);
+			name = AXStatusItemPopup;
+			sourceTree = "<group>";
+		};
+		13CF4726189D99E100B11FB5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13CF4721189D99D500B11FB5 /* WKStatusMenuViewController.h */,
+				13CF4722189D99D500B11FB5 /* WKStatusMenuViewController.m */,
+				13CF4723189D99D500B11FB5 /* WKStatusMenuViewController.xib */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		D1367CB01673C4C40062013A /* MGPreferencePanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +219,7 @@
 				D11F59D91673D3C10097B5C8 /* WKApi.h */,
 				D11F59DA1673D3C10097B5C8 /* WKApi.m */,
 				D174ADD61673678C00C82F90 /* MainMenu.xib */,
+				13CF4726189D99E100B11FB5 /* View Controllers */,
 				D174ADC81673678C00C82F90 /* Supporting Files */,
 			);
 			path = "WaniKani Notifier";
@@ -248,6 +276,7 @@
 		D174ADFB16737ABD00C82F90 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				13CF471D189D57D400B11FB5 /* AXStatusItemPopup */,
 				D1367CB01673C4C40062013A /* MGPreferencePanel */,
 				D174ADFC16737C5200C82F90 /* LaunchAtLoginController */,
 			);
@@ -337,6 +366,7 @@
 				D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */,
 				13CF470D189CB55A00B11FB5 /* guru.png in Resources */,
 				13CF4716189CC39700B11FB5 /* enlighten-small.png in Resources */,
+				13CF4725189D99D500B11FB5 /* WKStatusMenuViewController.xib in Resources */,
 				D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */,
 				13CF4715189CC39700B11FB5 /* burned-small.png in Resources */,
 				D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */,
@@ -356,11 +386,13 @@
 				D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */,
 				13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */,
 				13CF46F41897304600B11FB5 /* WKUser.m in Sources */,
+				13CF4724189D99D500B11FB5 /* WKStatusMenuViewController.m in Sources */,
 				13CF4703189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.m in Sources */,
 				D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */,
 				13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */,
 				D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */,
 				D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */,
+				13CF4720189D580300B11FB5 /* AXStatusItemPopup.m in Sources */,
 				13CF4700189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

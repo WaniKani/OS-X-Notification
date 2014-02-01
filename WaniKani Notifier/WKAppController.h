@@ -15,8 +15,9 @@
 {
   IBOutlet NSWindow* window;
 
-  NSStatusItem* statusItem;
-  IBOutlet NSMenu* statusMenu;
+  NSStatusItem*				statusItem;
+  IBOutlet NSMenu*		statusMenu;
+	IBOutlet NSViewController*		statusMenuViewController;
 
   IBOutlet NSMenuItem*          profileMenuItem;
   IBOutlet NSView*              profileMenuView;
@@ -51,7 +52,7 @@
 
   NSNumber* lastReviewsAvailable;
 }
-@property (nonatomic, strong) WKApi* api;
+@property (nonatomic, readonly) WKApi* api;
 
 - (IBAction)visitWaniKani: (id)sender;
 - (IBAction)showPreferences: (id)sender;

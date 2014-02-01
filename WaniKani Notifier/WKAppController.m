@@ -14,14 +14,18 @@
 #import "WKStudyQueue.h"
 #import "WKLevelProgression.h"
 
+// Views
+#import "AXStatusItemPopup.h"
+
 static NSString* const ReviewsAvailableKeyPath = @"api.studyQueue.reviewsAvailable";
 static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-@interface WKAppController ()
+@interface WKAppController () <NSMenuDelegate>
 @property (nonatomic, readonly) NSUserDefaults* userDefaults;
 @property (nonatomic, readonly) NSURL* waniKaniUrl;
 @property (nonatomic, readonly) WKNotifier* notifier;
+@property (nonatomic, strong) AXStatusItemPopup* statusItemPopup;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,6 +43,8 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 
   if ( self )
   {
+		_api = [[WKApi alloc] init];
+		
     [self addObserver: self
            forKeyPath: ReviewsAvailableKeyPath
               options: 0
@@ -91,18 +97,17 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 {
   [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate: self];
 
-  self.api = [[WKApi alloc] init];
-
   // Set up Statusbar Icon
-  statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSVariableStatusItemLength];
-
-  [statusItem setMenu: statusMenu];
-  [statusItem setHighlightMode: YES];
-  [statusItem setImage: [NSImage imageNamed: @"menubar.png"]];
-  [statusItem setAlternateImage: [NSImage imageNamed: @"menubar-invert.png"]];
-  [statusItem setEnabled: YES];
-
-  [profileMenuItem setView: profileMenuView];
+	AXStatusItemPopup* statusItemPopup = [[AXStatusItemPopup alloc]
+																				initWithViewController: statusMenuViewController
+																				image: [NSImage imageNamed: @"menubar.png"]
+																				alternateImage:[NSImage imageNamed: @"menubar-invert.png"]];
+	self.statusItemPopup = statusItemPopup;
+	
+	
+	//
+//	statusItem.menu = statusMenu;
+//  [profileMenuItem setView: profileMenuView];
 
   // Sets Default Values
   if ( [self.userDefaults objectForKey: kApiKey] != nil )

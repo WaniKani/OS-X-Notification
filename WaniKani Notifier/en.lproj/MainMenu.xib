@@ -395,7 +395,6 @@
         <customObject id="684" customClass="LaunchAtLoginController"/>
         <customObject id="676" customClass="WKAppController">
             <connections>
-                <outlet property="_userKanjiProgress" destination="864" id="1378"/>
                 <outlet property="apiKeyTextfield" destination="725" id="1110"/>
                 <outlet property="minReviews" destination="1343" id="1690"/>
                 <outlet property="profileMenuImage" destination="wRl-S5-wDU" id="axj-sv-fWL"/>
@@ -411,6 +410,7 @@
                 <outlet property="reviewsNextHourMenu" destination="1291" id="1495"/>
                 <outlet property="sound" destination="1649" id="1692"/>
                 <outlet property="statusMenu" destination="642" id="691"/>
+                <outlet property="statusMenuViewController" destination="wha-Ic-lwd" id="YQK-rK-1lG"/>
                 <outlet property="userImage" destination="767" id="1494"/>
                 <outlet property="userKanjiProgress" destination="1007" id="1379"/>
                 <outlet property="userKanjiText" destination="1009" id="1382"/>
@@ -431,7 +431,7 @@
                 <outlet property="window" destination="371" id="702"/>
             </connections>
         </customObject>
-        <customView identifier="view1" id="704">
+        <customView identifier="view1" id="704" userLabel="Settings View">
             <rect key="frame" x="0.0" y="0.0" width="533" height="208"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -519,7 +519,7 @@
                 <constraint firstAttribute="bottom" secondItem="725" secondAttribute="bottom" constant="20" symbolic="YES" id="1135"/>
             </constraints>
         </customView>
-        <customView id="706">
+        <customView id="706" userLabel="Profile View">
             <rect key="frame" x="0.0" y="0.0" width="533" height="194"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -725,7 +725,7 @@
                 <constraint firstItem="1510" firstAttribute="leading" secondItem="1136" secondAttribute="trailing" constant="8" symbolic="YES" id="1667"/>
             </constraints>
         </customView>
-        <customView id="708">
+        <customView id="708" userLabel="Review Preferences View">
             <rect key="frame" x="0.0" y="0.0" width="533" height="135"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -839,6 +839,7 @@
                 <constraint firstItem="1612" firstAttribute="centerY" secondItem="708" secondAttribute="centerY" id="1688"/>
             </constraints>
         </customView>
+        <viewController id="wha-Ic-lwd" userLabel="Status Menu View Controller" customClass="WKStatusMenuViewController"/>
         <userDefaultsController representsSharedInstance="YES" id="685"/>
         <customView id="32i-sI-1P9" userLabel="Menu Profile View">
             <rect key="frame" x="0.0" y="0.0" width="294" height="80"/>
