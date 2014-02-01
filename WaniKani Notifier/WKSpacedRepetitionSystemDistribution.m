@@ -11,6 +11,8 @@
 // Model
 #import "WKSpacedRepetitionLevelInfo.h"
 
+#import "WKColors.h"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKSpacedRepetitionSystemDistribution
 
@@ -21,18 +23,23 @@
 	{
 		_apprenticeLevelInfo = [[WKSpacedRepetitionLevelInfo alloc] init];
 		_apprenticeLevelInfo.title = NSLocalizedString(@"Apprentice", @"SRS Level title");
+		_apprenticeLevelInfo.color = COLOR_APPRENTICE;
 		
 		_guruLevelInfo = [[WKSpacedRepetitionLevelInfo alloc] init];
 		_guruLevelInfo.title = NSLocalizedString(@"Guru", @"SRS Level title");
+		_guruLevelInfo.color = COLOR_GURU;
 		
 		_masterLevelInfo = [[WKSpacedRepetitionLevelInfo alloc] init];
 		_masterLevelInfo.title = NSLocalizedString(@"Master", @"SRS Level title");
+		_masterLevelInfo.color = COLOR_MASTER;
 		
 		_enlightenLevelInfo = [[WKSpacedRepetitionLevelInfo alloc] init];
 		_enlightenLevelInfo.title = NSLocalizedString(@"Enlightened", @"SRS Level title");
+		_enlightenLevelInfo.color = COLOR_ENLIGHTENED;
 		
 		_burnedLevelInfo = [[WKSpacedRepetitionLevelInfo alloc] init];
 		_burnedLevelInfo.title = NSLocalizedString(@"Burned", @"SRS Level title");
+		_burnedLevelInfo.color = COLOR_BURNED;
 	}
 	
 	return self;

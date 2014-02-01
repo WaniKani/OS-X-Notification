@@ -11,6 +11,7 @@
 
 @interface WKSpacedRepetitionLevelInfo : NSObject <WKApiDataContainer>
 @property (nonatomic, strong) NSString*		title;
+@property (nonatomic, strong) NSColor*		color;
 @property (nonatomic, strong) NSNumber*		radicalsCount;
 @property (nonatomic, strong) NSNumber*		kanjiCount;
 @property (nonatomic, strong) NSNumber*		vocabularyCount;

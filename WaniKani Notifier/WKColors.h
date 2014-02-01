@@ -11,7 +11,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Colors
-#define COLOR_RGBA(r,g,b,a) [UIColor colorWithRed: (r) green: (g) blue: (b) alpha: (a)]
+#define COLOR_RGBA(r,g,b,a) [NSColor colorWithRed: (r) green: (g) blue: (b) alpha: (a)]
 #define COLOR_RGB(r,g,b) COLOR_RGBA((r)/255.0, (g)/255.0, (b)/255.0, 1.0)
 
 // SRS Levels
