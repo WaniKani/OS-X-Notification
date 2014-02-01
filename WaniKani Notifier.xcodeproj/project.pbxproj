@@ -33,7 +33,7 @@
 		D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D174ADE81673699900C82F90 /* preference-image@2x.png */; };
 		D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D174ADEE167369A600C82F90 /* review-time.mp3 */; };
 		D174ADF616736FDA00C82F90 /* WKAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADF516736FDA00C82F90 /* WKAppController.m */; };
-		D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */; };
 		D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE2716737D1800C82F90 /* WKNotifier.m */; };
 /* End PBXBuildFile section */
 
