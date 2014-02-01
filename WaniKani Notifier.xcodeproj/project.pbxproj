@@ -25,6 +25,7 @@
 		13CF4720189D580300B11FB5 /* AXStatusItemPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF471F189D580300B11FB5 /* AXStatusItemPopup.m */; };
 		13CF4724189D99D500B11FB5 /* WKStatusMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF4722189D99D500B11FB5 /* WKStatusMenuViewController.m */; };
 		13CF4725189D99D500B11FB5 /* WKStatusMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4723189D99D500B11FB5 /* WKStatusMenuViewController.xib */; };
+		13CF4728189D9D1900B11FB5 /* bkg-crabigator.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4727189D9D1900B11FB5 /* bkg-crabigator.png */; };
 		B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B04F497E189C587B009C7DC4 /* menubar-active.png */; };
 		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
@@ -74,6 +75,7 @@
 		13CF4721189D99D500B11FB5 /* WKStatusMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKStatusMenuViewController.h; sourceTree = "<group>"; };
 		13CF4722189D99D500B11FB5 /* WKStatusMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKStatusMenuViewController.m; sourceTree = "<group>"; };
 		13CF4723189D99D500B11FB5 /* WKStatusMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WKStatusMenuViewController.xib; sourceTree = "<group>"; };
+		13CF4727189D9D1900B11FB5 /* bkg-crabigator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg-crabigator.png"; sourceTree = "<group>"; };
 		B04F497E189C587B009C7DC4 /* menubar-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-active.png"; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				D1367CB91673C8EF0062013A /* default-avatar.jpg */,
+				13CF4727189D9D1900B11FB5 /* bkg-crabigator.png */,
 				D174ADE51673699900C82F90 /* menubar-invert.png */,
 				D174ADE61673699900C82F90 /* menubar.png */,
 				B04F497E189C587B009C7DC4 /* menubar-active.png */,
@@ -368,6 +371,7 @@
 				13CF4716189CC39700B11FB5 /* enlighten-small.png in Resources */,
 				13CF4725189D99D500B11FB5 /* WKStatusMenuViewController.xib in Resources */,
 				D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */,
+				13CF4728189D9D1900B11FB5 /* bkg-crabigator.png in Resources */,
 				13CF4715189CC39700B11FB5 /* burned-small.png in Resources */,
 				D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */,
 				B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */,

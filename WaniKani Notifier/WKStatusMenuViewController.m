@@ -8,19 +8,30 @@
 
 #import "WKStatusMenuViewController.h"
 
-@interface WKStatusMenuViewController ()
+// Models
+#import "WKUser.h"
+#import "WKStudyQueue.h"
+#import "WKLevelProgression.h"
+#import "WKSpacedRepetitionSystemDistribution.h"
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+@interface WKStatusMenuViewController ()
 @end
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKStatusMenuViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName: (NSString*)nibNameOrNil
+               bundle: (NSBundle*)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
-    }
-    return self;
+  self = [super initWithNibName: nibNameOrNil
+                         bundle: nibBundleOrNil];
+  if ( self )
+  {
+    // Initialization code here.
+  }
+	
+  return self;
 }
 
 @end

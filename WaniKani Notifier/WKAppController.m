@@ -17,6 +17,9 @@
 // Views
 #import "AXStatusItemPopup.h"
 
+// View Controllers
+#import "WKStatusMenuViewController.h"
+
 static NSString* const ReviewsAvailableKeyPath = @"api.studyQueue.reviewsAvailable";
 static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 
@@ -104,6 +107,11 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 																				alternateImage:[NSImage imageNamed: @"menubar-invert.png"]];
 	self.statusItemPopup = statusItemPopup;
 	
+	// TODO: look at ownership responsibility
+	statusMenuViewController.user = self.api.user;
+	statusMenuViewController.studyQueue = self.api.studyQueue;
+	statusMenuViewController.levelProgression = self.api.levelProgression;
+	statusMenuViewController.srsDistribution = self.api.srsDistribution;
 	
 	//
 //	statusItem.menu = statusMenu;
@@ -408,11 +416,11 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
   {
     if ( self.api.studyQueue.reviewsAvailable.integerValue > 0 )
     {
-      [statusItem setImage: [NSImage imageNamed: @"menubar-active.png"]];
+			self.statusItemPopup.image = [NSImage imageNamed: @"menubar-active.png"];
     }
     else
     {
-      [statusItem setImage: [NSImage imageNamed: @"menubar.png"]];
+      self.statusItemPopup.image = [NSImage imageNamed: @"menubar.png"];
     }
   }
   else

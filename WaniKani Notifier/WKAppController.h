@@ -11,13 +11,12 @@
 #import "WKApi.h"
 #import "WKNotifier.h"
 
+@class WKStatusMenuViewController;
 @interface WKAppController : NSObject <NSApplicationDelegate, NSUserNotificationCenterDelegate>
 {
   IBOutlet NSWindow* window;
 
-  NSStatusItem*				statusItem;
-  IBOutlet NSMenu*		statusMenu;
-	IBOutlet NSViewController*		statusMenuViewController;
+	IBOutlet WKStatusMenuViewController*		statusMenuViewController;
 
   IBOutlet NSMenuItem*          profileMenuItem;
   IBOutlet NSView*              profileMenuView;

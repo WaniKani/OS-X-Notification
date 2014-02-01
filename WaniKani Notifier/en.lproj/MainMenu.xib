@@ -409,7 +409,6 @@
                 <outlet property="reviewsNextDayMenu" destination="1292" id="1496"/>
                 <outlet property="reviewsNextHourMenu" destination="1291" id="1495"/>
                 <outlet property="sound" destination="1649" id="1692"/>
-                <outlet property="statusMenu" destination="642" id="691"/>
                 <outlet property="statusMenuViewController" destination="wha-Ic-lwd" id="YQK-rK-1lG"/>
                 <outlet property="userImage" destination="767" id="1494"/>
                 <outlet property="userKanjiProgress" destination="1007" id="1379"/>
