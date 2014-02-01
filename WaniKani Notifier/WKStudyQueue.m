@@ -10,23 +10,23 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WKStudyQueue ()
-- (NSDate*)dateFromString: (NSString*)dateString;
+- (NSDate*)dateFromDateInSeconds: (NSNumber*)dateInSeconds;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKStudyQueue
 - (void)updateWithDictionary: (NSDictionary*)dictionary
 {
-	self.lessonsAvailable = dictionary[@"lessons_available"];
-  self.reviewsAvailable = dictionary[@"reviews_available"];
-  self.nextReviewDate = [self dateFromString: dictionary[@"next_review_date"]];
-  self.reviewsAvailableNextHour = dictionary[@"reviews_available_next_hour"];
-  self.reviewsAvailableNextDay = dictionary[@"reviews_available_next_day"];
+	self.lessonsAvailable = SAFE_NUMBER(dictionary[@"lessons_available"]);
+  self.reviewsAvailable = SAFE_NUMBER(dictionary[@"reviews_available"]);
+  self.nextReviewDate = [self dateFromDateInSeconds: SAFE_NUMBER(dictionary[@"next_review_date"])];
+  self.reviewsAvailableNextHour = SAFE_NUMBER(dictionary[@"reviews_available_next_hour"]);
+  self.reviewsAvailableNextDay = SAFE_NUMBER(dictionary[@"reviews_available_next_day"]);
 }
 
-- (NSDate*)dateFromString: (NSString*)dateString
+- (NSDate*)dateFromDateInSeconds: (NSNumber*)dateInSeconds
 {
-	return [NSDate dateWithTimeIntervalSince1970: [dateString doubleValue]];
+	return [NSDate dateWithTimeIntervalSince1970: [dateInSeconds doubleValue]];
 }
 
 @end

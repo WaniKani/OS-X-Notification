@@ -10,6 +10,13 @@
 		13CF46F41897304600B11FB5 /* WKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F31897304600B11FB5 /* WKUser.m */; };
 		13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F61897313C00B11FB5 /* WKStudyQueue.m */; };
 		13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46F91897316000B11FB5 /* WKLevelProgression.m */; };
+		13CF4700189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF46FF189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.m */; };
+		13CF4703189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF4702189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.m */; };
+		13CF470A189CB55A00B11FB5 /* apprentice.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4705189CB55A00B11FB5 /* apprentice.png */; };
+		13CF470B189CB55A00B11FB5 /* burned.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4706189CB55A00B11FB5 /* burned.png */; };
+		13CF470C189CB55A00B11FB5 /* enlighten.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4707189CB55A00B11FB5 /* enlighten.png */; };
+		13CF470D189CB55A00B11FB5 /* guru.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4708189CB55A00B11FB5 /* guru.png */; };
+		13CF470E189CB55A00B11FB5 /* master.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4709189CB55A00B11FB5 /* master.png */; };
 		B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B04F497E189C587B009C7DC4 /* menubar-active.png */; };
 		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
@@ -38,6 +45,16 @@
 		13CF46F81897316000B11FB5 /* WKLevelProgression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKLevelProgression.h; sourceTree = "<group>"; };
 		13CF46F91897316000B11FB5 /* WKLevelProgression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKLevelProgression.m; sourceTree = "<group>"; };
 		13CF46FC189731E400B11FB5 /* WKApiDataContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKApiDataContainer.h; sourceTree = "<group>"; };
+		13CF46FE189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSpacedRepetitionSystemDistribution.h; sourceTree = "<group>"; };
+		13CF46FF189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSpacedRepetitionSystemDistribution.m; sourceTree = "<group>"; };
+		13CF4701189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSpacedRepetitionLevelInfo.h; sourceTree = "<group>"; };
+		13CF4702189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSpacedRepetitionLevelInfo.m; sourceTree = "<group>"; };
+		13CF4704189CB0F600B11FB5 /* WKDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKDefines.h; sourceTree = "<group>"; };
+		13CF4705189CB55A00B11FB5 /* apprentice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apprentice.png; sourceTree = "<group>"; };
+		13CF4706189CB55A00B11FB5 /* burned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burned.png; sourceTree = "<group>"; };
+		13CF4707189CB55A00B11FB5 /* enlighten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enlighten.png; sourceTree = "<group>"; };
+		13CF4708189CB55A00B11FB5 /* guru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guru.png; sourceTree = "<group>"; };
+		13CF4709189CB55A00B11FB5 /* master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = master.png; sourceTree = "<group>"; };
 		B04F497E189C587B009C7DC4 /* menubar-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-active.png"; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
@@ -90,6 +107,10 @@
 				13CF46F61897313C00B11FB5 /* WKStudyQueue.m */,
 				13CF46F81897316000B11FB5 /* WKLevelProgression.h */,
 				13CF46F91897316000B11FB5 /* WKLevelProgression.m */,
+				13CF46FE189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.h */,
+				13CF46FF189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.m */,
+				13CF4701189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.h */,
+				13CF4702189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -176,6 +197,7 @@
 				D174ADCD1673678C00C82F90 /* main.m */,
 				D174ADCF1673678C00C82F90 /* WaniKani Notifier-Prefix.pch */,
 				D174ADE21673698F00C82F90 /* Credits.rtfd */,
+				13CF4704189CB0F600B11FB5 /* WKDefines.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -189,6 +211,11 @@
 				B04F497E189C587B009C7DC4 /* menubar-active.png */,
 				D174ADE71673699900C82F90 /* preference-image.png */,
 				D174ADE81673699900C82F90 /* preference-image@2x.png */,
+				13CF4705189CB55A00B11FB5 /* apprentice.png */,
+				13CF4706189CB55A00B11FB5 /* burned.png */,
+				13CF4707189CB55A00B11FB5 /* enlighten.png */,
+				13CF4708189CB55A00B11FB5 /* guru.png */,
+				13CF4709189CB55A00B11FB5 /* master.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -280,10 +307,15 @@
 				D174ADD81673678C00C82F90 /* MainMenu.xib in Resources */,
 				D174ADDF1673696F00C82F90 /* alicrab.iconset in Resources */,
 				D174ADE31673698F00C82F90 /* Credits.rtfd in Resources */,
+				13CF470A189CB55A00B11FB5 /* apprentice.png in Resources */,
 				D174ADE91673699900C82F90 /* menubar-invert.png in Resources */,
+				13CF470C189CB55A00B11FB5 /* enlighten.png in Resources */,
 				D174ADEA1673699900C82F90 /* menubar.png in Resources */,
 				D174ADEB1673699900C82F90 /* preference-image.png in Resources */,
+				13CF470E189CB55A00B11FB5 /* master.png in Resources */,
+				13CF470B189CB55A00B11FB5 /* burned.png in Resources */,
 				D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */,
+				13CF470D189CB55A00B11FB5 /* guru.png in Resources */,
 				D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */,
 				D1367CBA1673C8EF0062013A /* default-avatar.jpg in Resources */,
 				B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */,
@@ -302,10 +334,12 @@
 				D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */,
 				13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */,
 				13CF46F41897304600B11FB5 /* WKUser.m in Sources */,
+				13CF4703189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.m in Sources */,
 				D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */,
 				13CF46F71897313C00B11FB5 /* WKStudyQueue.m in Sources */,
 				D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */,
 				D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */,
+				13CF4700189CADC600B11FB5 /* WKSpacedRepetitionSystemDistribution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,19 +11,22 @@
 @class WKUser;
 @class WKStudyQueue;
 @class WKLevelProgression;
+@class WKSpacedRepetitionSystemDistribution;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WKApi : NSObject
 //Conection Info
 @property (strong) NSString* apiKey;
 
-@property (nonatomic, strong) WKUser* user;
-@property (nonatomic, strong) WKStudyQueue* studyQueue;
-@property (nonatomic, strong) WKLevelProgression* levelProgression;
+@property (nonatomic, readonly) WKUser* user;
+@property (nonatomic, readonly) WKStudyQueue* studyQueue;
+@property (nonatomic, readonly) WKLevelProgression* levelProgression;
+@property (nonatomic, readonly) WKSpacedRepetitionSystemDistribution* srsDistribution;
 
 - (void)updateAllData;
 - (void)updateUserInfo;
 - (void)updateStudyQueue;
 - (void)updateLevelProgression;
+- (void)updateSrsDistribution;
 
 @end

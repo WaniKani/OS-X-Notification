@@ -19,11 +19,12 @@ static NSString* const kGravatarFormat = @"http://www.gravatar.com/avatar/%@?s=1
 @implementation WKUser
 - (void)updateWithDictionary: (NSDictionary*)dictionary
 {
-	self.username = dictionary[@"username"];
-  self.gravatarUrlString = [self gravatarUrlStringWithGravatarId: dictionary[@"gravatar"]];
-  self.level = dictionary[@"level"];
-  self.title = dictionary[@"title"];
-  self.creationDate = dictionary[@"creation_date"];
+	self.username = SAFE_STRING(dictionary[@"username"]);
+  self.gravatarUrlString = [self gravatarUrlStringWithGravatarId:
+														SAFE_STRING(dictionary[@"gravatar"])];
+  self.level = SAFE_NUMBER(dictionary[@"level"]);
+  self.title = SAFE_STRING(dictionary[@"title"]);
+  self.creationDate = SAFE_STRING(dictionary[@"creation_date"]);
 }
 
 - (NSURL*)gravatar
