@@ -21,7 +21,7 @@ static NSString* const kGravatarFormat = @"http://www.gravatar.com/avatar/%@?s=1
 {
 	self.username = SAFE_STRING(dictionary[@"username"]);
   self.gravatarUrlString = [self gravatarUrlStringWithGravatarId:
-														SAFE_DICTIONARY(dictionary[@"gravatar"])];
+														SAFE_STRING(dictionary[@"gravatar"])];
   self.level = SAFE_NUMBER(dictionary[@"level"]);
   self.title = SAFE_STRING(dictionary[@"title"]);
   self.creationDate = SAFE_STRING(dictionary[@"creation_date"]);
