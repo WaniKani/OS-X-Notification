@@ -17,11 +17,11 @@
 @implementation WKStudyQueue
 - (void)updateWithDictionary: (NSDictionary*)dictionary
 {
-	self.lessonsAvailable = dictionary[@"lessons_available"];
-  self.reviewsAvailable = dictionary[@"reviews_available"];
-  self.nextReviewDate = [self dateFromString: dictionary[@"next_review_date"]];
-  self.reviewsAvailableNextHour = dictionary[@"reviews_available_next_hour"];
-  self.reviewsAvailableNextDay = dictionary[@"reviews_available_next_day"];
+	self.lessonsAvailable = SAFE_NUMBER(dictionary[@"lessons_available"]);
+  self.reviewsAvailable = SAFE_NUMBER(dictionary[@"reviews_available"]);
+  self.nextReviewDate = [self dateFromString: SAFE_STRING(dictionary[@"next_review_date"])];
+  self.reviewsAvailableNextHour = SAFE_NUMBER(dictionary[@"reviews_available_next_hour"]);
+  self.reviewsAvailableNextDay = SAFE_NUMBER(dictionary[@"reviews_available_next_day"]);
 }
 
 - (NSDate*)dateFromString: (NSString*)dateString

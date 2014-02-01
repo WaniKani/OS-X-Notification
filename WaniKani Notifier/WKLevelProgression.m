@@ -11,10 +11,10 @@
 @implementation WKLevelProgression
 - (void)updateWithDictionary: (NSDictionary*)dictionary
 {
-	self.radicalsProgress = dictionary[@"radicals_progress"];
-  self.radicalsTotal = dictionary[@"radicals_total"];
-  self.kanjiProgress = dictionary[@"kanji_progress"];
-  self.kanjiTotal = dictionary[@"kanji_total"];
+	self.radicalsProgress = SAFE_NUMBER(dictionary[@"radicals_progress"]);
+  self.radicalsTotal = SAFE_NUMBER(dictionary[@"radicals_total"]);
+  self.kanjiProgress = SAFE_NUMBER(dictionary[@"kanji_progress"]);
+  self.kanjiTotal = SAFE_NUMBER(dictionary[@"kanji_total"]);
 }
 
 - (NSString*)radicalsCompletionString
