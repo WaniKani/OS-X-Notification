@@ -65,6 +65,7 @@
 		13CF4711189CC39700B11FB5 /* enlighten-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "enlighten-small.png"; sourceTree = "<group>"; };
 		13CF4712189CC39700B11FB5 /* guru-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guru-small.png"; sourceTree = "<group>"; };
 		13CF4713189CC39700B11FB5 /* master-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "master-small.png"; sourceTree = "<group>"; };
+		13CF4719189D4AE000B11FB5 /* WKColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKColors.h; sourceTree = "<group>"; };
 		B04F497E189C587B009C7DC4 /* menubar-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-active.png"; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 				D174ADCF1673678C00C82F90 /* WaniKani Notifier-Prefix.pch */,
 				D174ADE21673698F00C82F90 /* Credits.rtfd */,
 				13CF4704189CB0F600B11FB5 /* WKDefines.h */,
+				13CF4719189D4AE000B11FB5 /* WKColors.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
