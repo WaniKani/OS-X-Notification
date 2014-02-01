@@ -12,6 +12,7 @@
 #import "WKUser.h"
 #import "WKStudyQueue.h"
 #import "WKLevelProgression.h"
+#import "WKSpacedRepetitionSystemDistribution.h"
 
 @interface WKApi ()
 - (NSURL*)apiUrlWithPath: (NSString*)path;
@@ -25,9 +26,10 @@
 	self = [super init];
 	if ( self )
 	{
-		self.user = [[WKUser alloc] init];
-		self.studyQueue = [[WKStudyQueue alloc] init];
-		self.levelProgression = [[WKLevelProgression alloc] init];
+		_user = [[WKUser alloc] init];
+		_studyQueue = [[WKStudyQueue alloc] init];
+		_levelProgression = [[WKLevelProgression alloc] init];
+		_srsDistribution = [[WKSpacedRepetitionSystemDistribution alloc] init];
 	}
 	
 	return self;
@@ -48,6 +50,7 @@
   [self updateLevelProgression];
   [self updateStudyQueue];
   [self updateUserInfo];
+	[self updateSrsDistribution];
 }
 
 - (void)updateUserInfo
@@ -68,15 +71,21 @@
 	[self.levelProgression updateWithDictionary: requestedInformation];
 }
 
+- (void)updateSrsDistribution
+{
+	NSDictionary* requestedInformation = [self requestedInformationForPath: @"srs-distribution"];
+	[self.srsDistribution updateWithDictionary: requestedInformation];
+}
+
 #pragma mark - Private
 - (NSDictionary*)userInformationForPath: (NSString*)path
 {
 	NSDictionary* requestedInformation = @{};
 	
-	id jsonObject = [self jsonObjectWithRequestForPath: path];
-	if ( [jsonObject respondsToSelector: @selector(objectForKey:)] )
+	NSDictionary* jsonObject = SAFE_DICTIONARY([self jsonObjectWithRequestForPath: path]);
+	if ( jsonObject )
 	{
-		requestedInformation = [jsonObject objectForKey: @"user_information"];
+		requestedInformation = SAFE_DICTIONARY([jsonObject objectForKey: @"user_information"]);
 	}
 	
 	return requestedInformation;
@@ -86,10 +95,10 @@
 {
 	NSDictionary* requestedInformation = @{};
 	
-	id jsonObject = [self jsonObjectWithRequestForPath: path];
-	if ( [jsonObject respondsToSelector: @selector(objectForKey:)] )
+	NSDictionary* jsonObject = SAFE_DICTIONARY([self jsonObjectWithRequestForPath: path]);
+	if ( jsonObject )
 	{
-		requestedInformation = [jsonObject objectForKey: @"requested_information"];
+		requestedInformation = SAFE_DICTIONARY([jsonObject objectForKey: @"requested_information"]);
 	}
 	
 	return requestedInformation;
