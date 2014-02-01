@@ -314,6 +314,37 @@
                 <menuItem title="Reviews next Day:" id="1292">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="JFv-39-YGJ"/>
+                <menuItem title="Apprentice: 0" id="G9Y-Jg-6TK">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="676" name="title" keyPath="self.api.srsDistribution.apprenticeLevelInfo.summaryText" id="eVM-d7-7IP"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Guru: 0" id="JJF-k4-Vx3">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="676" name="title" keyPath="self.api.srsDistribution.guruLevelInfo.summaryText" id="Xpl-vo-6Cj"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Master: 0" id="hY6-cC-TFb">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="676" name="title" keyPath="self.api.srsDistribution.masterLevelInfo.summaryText" id="FBb-XE-y95"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Enlightened: 0" id="j0a-gv-ZO0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="676" name="title" keyPath="self.api.srsDistribution.enlightenLevelInfo.summaryText" id="zqM-0q-XFq"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Burned: 0" id="rYs-IO-s0f">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <binding destination="676" name="title" keyPath="self.api.srsDistribution.burnedLevelInfo.summaryText" id="2wV-hx-aVk"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="1497"/>
                 <menuItem title="Preferences..." id="644">
                     <modifierMask key="keyEquivalentModifierMask"/>

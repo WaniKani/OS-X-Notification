@@ -17,6 +17,17 @@
   self.totalCount = SAFE_NUMBER(dictionary[@"total"]);
 }
 
+- (NSString*)summaryText
+{
+	return [NSString stringWithFormat: @"%@: %@", self.title, self.totalCount];
+}
+
++ (NSSet*)keyPathsForValuesAffectingSummaryText
+{
+	return [NSSet setWithObjects: @"title", @"totalCount", nil];
+}
+
+#pragma mark -
 - (NSString*)debugDescription
 {
 	return [NSString

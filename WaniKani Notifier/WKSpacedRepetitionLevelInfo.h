@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSNumber*		kanjiCount;
 @property (nonatomic, strong) NSNumber*		vocabularyCount;
 @property (nonatomic, strong) NSNumber*		totalCount;
+
+@property (nonatomic, readonly) NSString* summaryText;
 @end
