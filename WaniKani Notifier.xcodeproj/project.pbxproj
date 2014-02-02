@@ -28,6 +28,7 @@
 		13CF4728189D9D1900B11FB5 /* bkg-crabigator.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF4727189D9D1900B11FB5 /* bkg-crabigator.png */; };
 		13CF472C189DFD7800B11FB5 /* bkg-toolbar-top.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF472A189DFD7800B11FB5 /* bkg-toolbar-top.png */; };
 		13CF472E189DFDC700B11FB5 /* bkg-toolbar-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CF472D189DFDC700B11FB5 /* bkg-toolbar-bottom.png */; };
+		13CF4732189E059B00B11FB5 /* WKSRSInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CF4731189E059B00B11FB5 /* WKSRSInfoView.m */; };
 		B04F497F189C587B009C7DC4 /* menubar-active.png in Resources */ = {isa = PBXBuildFile; fileRef = B04F497E189C587B009C7DC4 /* menubar-active.png */; };
 		D11F59DB1673D3C10097B5C8 /* WKApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F59DA1673D3C10097B5C8 /* WKApi.m */; };
 		D1367CB31673C4C40062013A /* MGPreferencePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = D1367CB21673C4C40062013A /* MGPreferencePanel.m */; };
@@ -80,6 +81,8 @@
 		13CF4727189D9D1900B11FB5 /* bkg-crabigator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg-crabigator.png"; sourceTree = "<group>"; };
 		13CF472A189DFD7800B11FB5 /* bkg-toolbar-top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg-toolbar-top.png"; sourceTree = "<group>"; };
 		13CF472D189DFDC700B11FB5 /* bkg-toolbar-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bkg-toolbar-bottom.png"; sourceTree = "<group>"; };
+		13CF4730189E059B00B11FB5 /* WKSRSInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKSRSInfoView.h; sourceTree = "<group>"; };
+		13CF4731189E059B00B11FB5 /* WKSRSInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKSRSInfoView.m; sourceTree = "<group>"; };
 		B04F497E189C587B009C7DC4 /* menubar-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-active.png"; sourceTree = "<group>"; };
 		D11F59D91673D3C10097B5C8 /* WKApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKApi.h; sourceTree = "<group>"; };
 		D11F59DA1673D3C10097B5C8 /* WKApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKApi.m; sourceTree = "<group>"; };
@@ -167,6 +170,15 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		13CF472F189E056900B11FB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13CF4730189E059B00B11FB5 /* WKSRSInfoView.h */,
+				13CF4731189E059B00B11FB5 /* WKSRSInfoView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D1367CB01673C4C40062013A /* MGPreferencePanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +231,7 @@
 				D174ADF516736FDA00C82F90 /* WKAppController.m */,
 				13CF46FB189731C600B11FB5 /* Protocols */,
 				13CF46F11897303200B11FB5 /* Model */,
+				13CF472F189E056900B11FB5 /* Views */,
 				D174ADFB16737ABD00C82F90 /* Externals */,
 				D174AE2616737D1800C82F90 /* WKNotifier.h */,
 				D174AE2716737D1800C82F90 /* WKNotifier.m */,
@@ -398,6 +411,7 @@
 				D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */,
 				13CF46FA1897316000B11FB5 /* WKLevelProgression.m in Sources */,
 				13CF46F41897304600B11FB5 /* WKUser.m in Sources */,
+				13CF4732189E059B00B11FB5 /* WKSRSInfoView.m in Sources */,
 				13CF4724189D99D500B11FB5 /* WKStatusMenuViewController.m in Sources */,
 				13CF4703189CADE400B11FB5 /* WKSpacedRepetitionLevelInfo.m in Sources */,
 				D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */,

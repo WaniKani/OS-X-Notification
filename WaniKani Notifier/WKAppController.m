@@ -52,6 +52,11 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
            forKeyPath: ReviewsAvailableKeyPath
               options: 0
               context: ReviewsAvailableContext];
+		
+		[[NSNotificationCenter defaultCenter] addObserver: self
+																						 selector: @selector(showPreferences:)
+																								 name: WKStatusMenuViewControllerShowPreferences
+																							 object: nil];
   }
 
   return self;
@@ -62,6 +67,10 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
   [self removeObserver: self
             forKeyPath: ReviewsAvailableKeyPath
                context: ReviewsAvailableContext];
+	
+	[[NSNotificationCenter defaultCenter] removeObserver: self
+																									name: WKStatusMenuViewControllerShowPreferences
+																								object: nil];
 }
 
 #pragma mark -
@@ -369,6 +378,7 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 
 - (IBAction)showPreferences: (id)sender
 {
+	[self.statusItemPopup hidePopover];
   [NSApp activateIgnoringOtherApps: YES];
   [window makeKeyAndOrderFront: nil];
 }

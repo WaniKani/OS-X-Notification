@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSString* const WKStatusMenuViewControllerShowPreferences;
+
 @class WKUser;
 @class WKStudyQueue;
 @class WKLevelProgression;
