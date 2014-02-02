@@ -156,6 +156,7 @@
   if ( !_popover )
   {
     _popover = [[NSPopover alloc] init];
+		_popover.appearance = NSPopoverAppearanceHUD;
     _popover.contentViewController = _viewController;
   }
 	
