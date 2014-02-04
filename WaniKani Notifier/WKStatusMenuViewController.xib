@@ -29,14 +29,51 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <imageCell key="cell" refusesFirstResponder="YES" focusRingType="none" alignment="left" animates="YES" imageAlignment="top" image="bkg-crabigator" id="NoS-Es-uvH"/>
                 </imageView>
-                <imageView translatesAutoresizingMaskIntoConstraints="NO" id="8oX-V7-P5m" userLabel="Top Background Image View">
+                <imageView alphaValue="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="8oX-V7-P5m" userLabel="Top Background Image View">
                     <rect key="frame" x="0.0" y="595" width="410" height="80"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="XEO-28-SEV"/>
                     </constraints>
+                    <backgroundFilters>
+                        <ciFilter name="CIGaussianBlur">
+                            <configuration>
+                                <null key="inputImage"/>
+                                <real key="inputRadius" value="10"/>
+                            </configuration>
+                        </ciFilter>
+                    </backgroundFilters>
                     <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="bkg-toolbar-top" id="au0-nm-WFa"/>
                 </imageView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="pXj-Vj-kAM" userLabel="SRS Info View">
+                    <rect key="frame" x="0.0" y="533" width="410" height="62"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqX-zW-Wuh" customClass="WKSRSInfoView">
+                            <rect key="frame" x="0.0" y="0.0" width="82" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xUa-Hz-h7r" customClass="WKSRSInfoView">
+                            <rect key="frame" x="82" y="0.0" width="82" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06F-oZ-Bj4" customClass="WKSRSInfoView">
+                            <rect key="frame" x="164" y="0.0" width="82" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjC-W5-mwi" customClass="WKSRSInfoView">
+                            <rect key="frame" x="246" y="0.0" width="82" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCe-xO-vgW" customClass="WKSRSInfoView">
+                            <rect key="frame" x="328" y="0.0" width="82" height="62"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="utz-Ph-0K8"/>
+                    </constraints>
+                </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="MDy-lH-X0h" userLabel="Menu Profile View">
                     <rect key="frame" x="0.0" y="595" width="410" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -196,41 +233,20 @@
                         <constraint firstItem="pdh-IW-wmV" firstAttribute="top" secondItem="biT-dc-gkf" secondAttribute="bottom" constant="4" id="xD9-av-xX8"/>
                     </constraints>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="pXj-Vj-kAM" userLabel="SRS Info View">
-                    <rect key="frame" x="0.0" y="40" width="410" height="62"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqX-zW-Wuh" customClass="WKSRSInfoView">
-                            <rect key="frame" x="0.0" y="0.0" width="82" height="62"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xUa-Hz-h7r" customClass="WKSRSInfoView">
-                            <rect key="frame" x="82" y="0.0" width="82" height="62"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06F-oZ-Bj4" customClass="WKSRSInfoView">
-                            <rect key="frame" x="164" y="0.0" width="82" height="62"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjC-W5-mwi" customClass="WKSRSInfoView">
-                            <rect key="frame" x="246" y="0.0" width="82" height="62"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
-                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iCe-xO-vgW" customClass="WKSRSInfoView">
-                            <rect key="frame" x="328" y="0.0" width="82" height="62"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="62" id="utz-Ph-0K8"/>
-                    </constraints>
-                </customView>
-                <imageView translatesAutoresizingMaskIntoConstraints="NO" id="2hc-Ni-BrY" userLabel="Bottom Background Image View">
+                <imageView alphaValue="0.34999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-Ni-BrY" userLabel="Bottom Background Image View">
                     <rect key="frame" x="0.0" y="0.0" width="410" height="40"/>
                     <autoresizingMask key="autoresizingMask"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="8Ec-OT-2zW"/>
                     </constraints>
+                    <backgroundFilters>
+                        <ciFilter name="CIGaussianBlur">
+                            <configuration>
+                                <null key="inputImage"/>
+                                <real key="inputRadius" value="10"/>
+                            </configuration>
+                        </ciFilter>
+                    </backgroundFilters>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="bkg-toolbar-bottom" id="QWw-uG-beq"/>
                 </imageView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="a3q-oG-2vN" userLabel="Bottom Toolbar View">
@@ -257,6 +273,11 @@
                             </buttonCell>
                             <connections>
                                 <action selector="refreshAction:" target="-2" id="cBO-sd-KqN"/>
+                                <binding destination="-2" name="enabled" keyPath="self.api.isUpdating" id="Uyd-Y0-OzM">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                    </dictionary>
+                                </binding>
                             </connections>
                         </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGX-eS-vEe">
@@ -267,6 +288,13 @@
                                 <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="displayPatternValue1" keyPath="self.api.nextReviewDate" id="Bfs-zD-JNL">
+                                    <dictionary key="options">
+                                        <string key="NSDisplayPattern">%{value1}@</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
                         </textField>
                     </subviews>
                     <constraints>
@@ -280,7 +308,7 @@
                 <constraint firstItem="2hc-Ni-BrY" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="7Yj-VX-dpc"/>
                 <constraint firstAttribute="bottom" secondItem="a3q-oG-2vN" secondAttribute="bottom" id="EeQ-2z-9tc"/>
                 <constraint firstAttribute="trailing" secondItem="a3q-oG-2vN" secondAttribute="trailing" id="Hj2-Ie-fsn"/>
-                <constraint firstItem="a3q-oG-2vN" firstAttribute="top" secondItem="pXj-Vj-kAM" secondAttribute="bottom" id="Mis-XP-qrR"/>
+                <constraint firstItem="a3q-oG-2vN" firstAttribute="top" secondItem="pXj-Vj-kAM" secondAttribute="bottom" constant="493" id="Mis-XP-qrR"/>
                 <constraint firstItem="MDy-lH-X0h" firstAttribute="top" secondItem="1" secondAttribute="top" id="Sas-j3-EFx"/>
                 <constraint firstAttribute="trailing" secondItem="MDy-lH-X0h" secondAttribute="trailing" id="Sov-AY-gtD"/>
                 <constraint firstItem="a3q-oG-2vN" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="X4z-Jz-fNO"/>

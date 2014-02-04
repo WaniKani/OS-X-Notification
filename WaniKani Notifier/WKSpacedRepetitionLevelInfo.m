@@ -9,6 +9,17 @@
 #import "WKSpacedRepetitionLevelInfo.h"
 
 @implementation WKSpacedRepetitionLevelInfo
+
++ (void)initialize
+{
+	[self exposeBinding: @"title"];
+	[self exposeBinding: @"color"];
+	[self exposeBinding: @"radicalsCount"];
+	[self exposeBinding: @"kanjiCount"];
+	[self exposeBinding: @"vocabularyCount"];
+	[self exposeBinding: @"totalCount"];
+}
+
 - (void)updateWithDictionary: (NSDictionary*)dictionary
 {
 	self.radicalsCount = SAFE_NUMBER(dictionary[@"radicals"]);

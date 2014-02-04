@@ -10,16 +10,6 @@
 
 extern NSString* const WKStatusMenuViewControllerShowPreferences;
 
-@class WKUser;
-@class WKStudyQueue;
-@class WKLevelProgression;
-@class WKSpacedRepetitionSystemDistribution;
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WKStatusMenuViewController : NSViewController
-@property (nonatomic, strong) WKUser* user;
-@property (nonatomic, strong) WKStudyQueue* studyQueue;
-@property (nonatomic, strong) WKLevelProgression* levelProgression;
-@property (nonatomic, strong) WKSpacedRepetitionSystemDistribution* srsDistribution;
-
 @end

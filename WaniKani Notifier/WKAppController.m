@@ -46,7 +46,7 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 
   if ( self )
   {
-		_api = [[WKApi alloc] init];
+		_api = [WKApi sharedInstance];
 		
     [self addObserver: self
            forKeyPath: ReviewsAvailableKeyPath
@@ -115,16 +115,7 @@ static void* ReviewsAvailableContext = &ReviewsAvailableContext;
 																				image: [NSImage imageNamed: @"menubar.png"]
 																				alternateImage:[NSImage imageNamed: @"menubar-invert.png"]];
 	self.statusItemPopup = statusItemPopup;
-	
-	// TODO: look at ownership responsibility
-	statusMenuViewController.user = self.api.user;
-	statusMenuViewController.studyQueue = self.api.studyQueue;
-	statusMenuViewController.levelProgression = self.api.levelProgression;
-	statusMenuViewController.srsDistribution = self.api.srsDistribution;
-	
-	//
-//	statusItem.menu = statusMenu;
-//  [profileMenuItem setView: profileMenuView];
+
 
   // Sets Default Values
   if ( [self.userDefaults objectForKey: kApiKey] != nil )

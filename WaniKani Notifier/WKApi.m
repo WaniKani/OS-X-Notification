@@ -14,12 +14,27 @@
 #import "WKLevelProgression.h"
 #import "WKSpacedRepetitionSystemDistribution.h"
 
+typedef void(^WKApiCompletionHandler)(id result, NSError* error);
+
 @interface WKApi ()
 - (NSURL*)apiUrlWithPath: (NSString*)path;
+@property (nonatomic, readonly) NSOperationQueue* requestQueue;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKApi
+
++ (WKApi*)sharedInstance
+{
+	static WKApi* _sharedInstance = nil;
+	
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+    _sharedInstance = [[WKApi alloc] init];
+	});
+	
+	return _sharedInstance;
+}
 
 - (id)init
 {
@@ -30,9 +45,33 @@
 		_studyQueue = [[WKStudyQueue alloc] init];
 		_levelProgression = [[WKLevelProgression alloc] init];
 		_srsDistribution = [[WKSpacedRepetitionSystemDistribution alloc] init];
+		
+		_requestQueue = [[NSOperationQueue alloc] init];
+		[_requestQueue setMaxConcurrentOperationCount: 4];
 	}
 	
 	return self;
+}
+
+#pragma mark -
+- (NSDate*)nextReviewDate
+{
+	return self.studyQueue.nextReviewDate;
+}
+
++ (NSSet*)keyPathsForValuesAffectingNextReviewDate
+{
+	return [NSSet setWithObjects: @"studyQueue.nextReviewDate", nil];
+}
+
+- (BOOL)isUpdating
+{
+	return (self.requestQueue.operationCount > 0);
+}
+
++ (NSSet*)keyPathsForValuesAffectingUpdating
+{
+	return [NSSet setWithObjects: @"requestQueue.operationCount", nil];
 }
 
 #pragma mark -
@@ -55,80 +94,121 @@
 
 - (void)updateUserInfo
 {
-  NSDictionary* userInformation = [self userInformationForPath: @"user-information"];
-	[self.user updateWithDictionary: userInformation];
+	[self userInformationForPath: @"user-information"
+						 completionHandler: ^(id result, NSError* error) {
+							 [self.user updateWithDictionary: result];
+						 }];
 }
 
 - (void)updateStudyQueue
 {
-  NSDictionary* requestedInformation = [self requestedInformationForPath: @"study-queue"];
-	[self.studyQueue updateWithDictionary: requestedInformation];
+	[self requestedInformationForPath: @"study-queue"
+									completionHandler: ^(id result, NSError* error) {
+										[self.studyQueue updateWithDictionary: result];
+									}];
 }
 
 - (void)updateLevelProgression
 {
-  NSDictionary* requestedInformation = [self requestedInformationForPath: @"level-progression"];
-	[self.levelProgression updateWithDictionary: requestedInformation];
+  [self requestedInformationForPath: @"level-progression"
+									completionHandler: ^(id result, NSError* error) {
+										[self.levelProgression updateWithDictionary: result];
+									}];
 }
 
 - (void)updateSrsDistribution
 {
-	NSDictionary* requestedInformation = [self requestedInformationForPath: @"srs-distribution"];
-	[self.srsDistribution updateWithDictionary: requestedInformation];
+	[self requestedInformationForPath: @"srs-distribution"
+									completionHandler: ^(id result, NSError* error) {
+										[self.srsDistribution updateWithDictionary: result];
+									}];
 }
 
 #pragma mark - Private
-- (NSDictionary*)userInformationForPath: (NSString*)path
+- (void)userInformationForPath: (NSString*)path
+						 completionHandler: (WKApiCompletionHandler)completionHandler
 {
-	NSDictionary* requestedInformation = @{};
-	
-	NSDictionary* jsonObject = SAFE_DICTIONARY([self jsonObjectWithRequestForPath: path]);
-	if ( jsonObject )
-	{
-		requestedInformation = SAFE_DICTIONARY([jsonObject objectForKey: @"user_information"]);
-	}
-	
-	return requestedInformation;
+	[self
+	 jsonObjectWithRequestForPath: path
+	 completionHandler: ^(id result, NSError *error) {
+		 if ( error )
+		 {
+			 dispatch_async(dispatch_get_main_queue(), ^{
+				 completionHandler(nil, error);
+			 });
+		 }
+		 else
+		 {
+			 NSDictionary* jsonObject = SAFE_DICTIONARY(result);
+			 NSDictionary* userInfo = SAFE_DICTIONARY(jsonObject[@"user_information"]);
+			 
+			 dispatch_async(dispatch_get_main_queue(), ^{
+				 completionHandler(userInfo, nil);
+			 });
+		 }
+	 }];
 }
 
-- (NSDictionary*)requestedInformationForPath: (NSString*)path
+- (void)requestedInformationForPath: (NSString*)path
+									completionHandler: (WKApiCompletionHandler)completionHandler
 {
-	NSDictionary* requestedInformation = @{};
-	
-	NSDictionary* jsonObject = SAFE_DICTIONARY([self jsonObjectWithRequestForPath: path]);
-	if ( jsonObject )
-	{
-		requestedInformation = SAFE_DICTIONARY([jsonObject objectForKey: @"requested_information"]);
-	}
-	
-	return requestedInformation;
+	[self
+	 jsonObjectWithRequestForPath: path
+	 completionHandler: ^(id result, NSError *error) {
+		 if ( error )
+		 {
+			 dispatch_async(dispatch_get_main_queue(), ^{
+				 completionHandler(nil, error);
+			 });
+		 }
+		 else
+		 {
+			 NSDictionary* jsonObject = SAFE_DICTIONARY(result);
+			 NSDictionary* requestedInfo = SAFE_DICTIONARY(jsonObject[@"requested_information"]);
+			 
+			 dispatch_async(dispatch_get_main_queue(), ^{
+				 completionHandler(requestedInfo, nil);
+			 });
+		 }
+	 }];
 }
 
-- (id)jsonObjectWithRequestForPath: (NSString*)path
+- (void)jsonObjectWithRequestForPath: (NSString*)path
+									 completionHandler: (WKApiCompletionHandler)completionHandler
 {
-	id jsonObject = nil;
-	
 	NSURL* apiURL = [self apiUrlWithPath: path];
   NSURLRequest* request = [NSURLRequest requestWithURL: apiURL];
-	jsonObject = [self jsonObjectWithRequest: request];
-	
-	return jsonObject;
+	[self jsonObjectWithRequest: request
+						completionHandler: completionHandler];
 }
 
-- (id)jsonObjectWithRequest: (NSURLRequest*)request
+- (void)jsonObjectWithRequest: (NSURLRequest*)request
+						completionHandler: (WKApiCompletionHandler)completionHandler
 {
-	id jsonObject = nil;
-	
-	NSData* response = [NSURLConnection sendSynchronousRequest: request
-                                           returningResponse: nil
-                                                       error: nil];
-	
-  NSError* jsonError = nil;
-	jsonObject = [NSJSONSerialization JSONObjectWithData: response
-																							 options: 0
-																								 error: &jsonError];
-	
-	return jsonObject;
+	NSLog(@"Fetch: %@", request.URL.absoluteString);
+	[NSURLConnection
+	 sendAsynchronousRequest: request
+	 queue: self.requestQueue
+	 completionHandler: ^(NSURLResponse* response, NSData* data, NSError*connectionError) {
+		 if ( connectionError )
+		 {
+			 dispatch_async(dispatch_get_main_queue(), ^{
+				 completionHandler(nil, connectionError);
+			 });
+		 }
+		 else
+		 {
+			 NSError* jsonError = nil;
+			 id jsonObject = [NSJSONSerialization JSONObjectWithData: data
+																											 options: 0
+																												 error: &jsonError];
+			 
+			 dispatch_async(dispatch_get_main_queue(), ^{
+				 completionHandler(jsonObject, jsonError);
+			 });
+		 }
+	 }];
 }
+
 
 @end

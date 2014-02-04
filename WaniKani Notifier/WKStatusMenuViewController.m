@@ -8,6 +8,8 @@
 
 #import "WKStatusMenuViewController.h"
 
+#import "WKApi.h"
+
 // Models
 #import "WKUser.h"
 #import "WKStudyQueue.h"
@@ -35,6 +37,11 @@ NSString* const WKStatusMenuViewControllerShowPreferences = @"WKStatusMenuViewCo
 @property (nonatomic, weak) IBOutlet WKSRSInfoView*		burnedInfoView;
 
 //
+@property (nonatomic, readonly) WKApi* api;
+@property (nonatomic, readonly) WKUser* user;
+@property (nonatomic, readonly) WKStudyQueue* studyQueue;
+@property (nonatomic, readonly) WKLevelProgression* levelProgression;
+@property (nonatomic, readonly) WKSpacedRepetitionSystemDistribution* srsDistribution;
 @property (nonatomic, readonly) NSNotificationCenter* notificationCenter;
 @end
 
@@ -68,7 +75,10 @@ NSString* const WKStatusMenuViewControllerShowPreferences = @"WKStatusMenuViewCo
 #pragma mark - Actions
 - (IBAction)refreshAction: (id)sender
 {
-	
+	if ( self.api.isUpdating == NO )
+	{
+		[self.api updateAllData];
+	}
 }
 
 - (IBAction)preferencesAction: (id)sender
@@ -78,6 +88,51 @@ NSString* const WKStatusMenuViewControllerShowPreferences = @"WKStatusMenuViewCo
 }
 
 #pragma mark -
+- (WKApi*)api
+{
+	return [WKApi sharedInstance];
+}
+
+- (WKUser*)user
+{
+	return self.api.user;
+}
+
++ (NSSet*)keyPathsForValuesAffectingUser
+{
+	return [NSSet setWithObjects: @"api", nil];
+}
+
+- (WKStudyQueue*)studyQueue
+{
+	return self.api.studyQueue;
+}
+
++ (NSSet*)keyPathsForValuesAffectingStudyQueue
+{
+	return [NSSet setWithObjects: @"api", nil];
+}
+
+- (WKLevelProgression*)levelProgression
+{
+	return self.api.levelProgression;
+}
+
++ (NSSet*)keyPathsForValuesAffectingLevelProgression
+{
+	return [NSSet setWithObjects: @"api", nil];
+}
+
+- (WKSpacedRepetitionSystemDistribution*)srsDistribution
+{
+	return self.api.srsDistribution;
+}
+
++ (NSSet*)keyPathsForValuesAffectingSrsDistribution
+{
+	return [NSSet setWithObjects: @"api", nil];
+}
+
 - (NSNotificationCenter*)notificationCenter
 {
 	return [NSNotificationCenter defaultCenter];

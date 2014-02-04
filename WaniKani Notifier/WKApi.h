@@ -15,6 +15,8 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WKApi : NSObject
++ (WKApi*)sharedInstance;
+
 //Conection Info
 @property (strong) NSString* apiKey;
 
@@ -23,6 +25,9 @@
 @property (nonatomic, readonly) WKLevelProgression* levelProgression;
 @property (nonatomic, readonly) WKSpacedRepetitionSystemDistribution* srsDistribution;
 
+@property (nonatomic, readonly) NSDate* nextReviewDate;
+
+@property (nonatomic, readonly, getter = isUpdating) BOOL updating;
 - (void)updateAllData;
 - (void)updateUserInfo;
 - (void)updateStudyQueue;
