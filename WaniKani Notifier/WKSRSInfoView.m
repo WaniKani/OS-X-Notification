@@ -22,6 +22,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WKSRSInfoView
 
++ (void)initialize
+{
+	[self exposeBinding: @"levelInfo"];
+}
+
 - (id)initWithFrame: (NSRect)frame
 {
   self = [super initWithFrame: frame];
@@ -41,13 +46,14 @@
 
 - (void)drawRect: (NSRect)dirtyRect
 {
-  [super drawRect: dirtyRect];
+	[super drawRect: dirtyRect];
 	
-	[self.color setFill];
-	NSRectFill(dirtyRect);
-	
-//	self.titleTextField.value = self.levelInfo.title;
-//	self.numberTextField.value = [NSString stringWithFormat: @"%@", self.levelInfo.totalCount];
+	CGContextRef context = (CGContextRef) [[NSGraphicsContext currentContext] graphicsPort];
+	CGContextSetFillColorWithColor(context, self.levelInfo.color.CGColor);
+	CGContextFillRect(context, NSRectToCGRect(dirtyRect));
 }
+
+#pragma mark -
+
 
 @end
