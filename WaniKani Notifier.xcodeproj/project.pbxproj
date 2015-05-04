@@ -27,6 +27,8 @@
 		D174ADF616736FDA00C82F90 /* WKAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADF516736FDA00C82F90 /* WKAppController.m */; };
 		D174ADFF16737C5200C82F90 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D174AE2816737D1800C82F90 /* WKNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = D174AE2716737D1800C82F90 /* WKNotifier.m */; };
+		FA21F4851AF7C66000FE4B0C /* menubar-invert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA21F4831AF7C66000FE4B0C /* menubar-invert@2x.png */; };
+		FA21F4861AF7C66000FE4B0C /* menubar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA21F4841AF7C66000FE4B0C /* menubar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		D174ADFE16737C5200C82F90 /* LaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAtLoginController.m; sourceTree = "<group>"; };
 		D174AE2616737D1800C82F90 /* WKNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKNotifier.h; sourceTree = "<group>"; };
 		D174AE2716737D1800C82F90 /* WKNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKNotifier.m; sourceTree = "<group>"; };
+		FA21F4831AF7C66000FE4B0C /* menubar-invert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-invert@2x.png"; sourceTree = "<group>"; };
+		FA21F4841AF7C66000FE4B0C /* menubar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 		D174ADE41673699900C82F90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA21F4831AF7C66000FE4B0C /* menubar-invert@2x.png */,
+				FA21F4841AF7C66000FE4B0C /* menubar@2x.png */,
 				D1367CB91673C8EF0062013A /* default-avatar.jpg */,
 				D174ADE51673699900C82F90 /* menubar-invert.png */,
 				D174ADE61673699900C82F90 /* menubar.png */,
@@ -274,11 +280,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D174ADCC1673678C00C82F90 /* InfoPlist.strings in Resources */,
+				FA21F4861AF7C66000FE4B0C /* menubar@2x.png in Resources */,
 				D174ADD81673678C00C82F90 /* MainMenu.xib in Resources */,
 				D174ADDF1673696F00C82F90 /* alicrab.iconset in Resources */,
 				D174ADE31673698F00C82F90 /* Credits.rtfd in Resources */,
 				D174ADE91673699900C82F90 /* menubar-invert.png in Resources */,
 				D174ADEA1673699900C82F90 /* menubar.png in Resources */,
+				FA21F4851AF7C66000FE4B0C /* menubar-invert@2x.png in Resources */,
 				D174ADEB1673699900C82F90 /* preference-image.png in Resources */,
 				D174ADEC1673699900C82F90 /* preference-image@2x.png in Resources */,
 				D174ADEF167369A600C82F90 /* review-time.mp3 in Resources */,

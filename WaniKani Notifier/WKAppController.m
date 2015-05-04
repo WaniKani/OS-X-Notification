@@ -72,8 +72,8 @@
 
   [statusItem setMenu: statusMenu];
   [statusItem setHighlightMode: YES];
-  [statusItem setImage: [NSImage imageNamed: @"menubar.png"]];
-  [statusItem setAlternateImage: [NSImage imageNamed: @"menubar-invert.png"]];
+  [statusItem setImage: [NSImage imageNamed: @"menubar"]];
+  [statusItem setAlternateImage: [NSImage imageNamed: @"menubar-invert"]];
   [statusItem setEnabled: YES];
 
   [profileMenuItem setView: profileMenuView];
